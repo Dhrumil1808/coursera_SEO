@@ -1,0 +1,45 @@
+/***
+ * Layout 4:Image Left *
+ ***/
+
+.modalContent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+    background: #FFFFFF;
+}
+.modalContent__image{
+    display: block;
+    float:right;
+    min-height: 400px;
+    width:450px;
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.modalContent__content{
+    float:right;
+    width: 530px;
+    padding: 30px;
+}
+.content__titleDescription{
+    margin-bottom: 20px;
+}
+.content__button{
+    margin-bottom: 20px;
+    height: 36px;
+}
+/* Media Queries */
+@media only screen and (max-width:960px) {
+
+    .modalContent,
+    .modalContent__content,
+    .modalContent__image{
+        width: 100%;
+    }
+}

@@ -1,0 +1,56 @@
+/**
+ * Mozcast Embed CSS
+ */
+body {
+	margin: 0;
+}
+img {
+	border: 0;
+}
+.embed {
+	display: block;
+	background-color: #55b3d9;
+    padding: 2px;
+
+    font: bold 11px/13px Helvetica, Arial, sans-serif;
+    color: #fff;
+    cursor: default;
+}
+.embed-vertical {
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+}
+.embed-horizontal {
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+.embed-vertical.embed-small {
+	width: 47px;
+}
+.embed-horizontal.embed-small {
+	height: 48px;
+}
+.embed-horizontal .logo {
+	float: left;
+}
+.embed-horizontal .date {
+	float: left;
+	padding: 6px 10px 0;
+}
+.embed-vertical .date {
+	padding: 6px 0 0 4px;
+	font-size: 12px;
+}
+.temp {
+	font-size: 43px;
+	line-height: 1;
+	padding-top: 3px;
+}
+.embed-vertical .temp {
+	font-size: 27px;
+	padding: 4px 0 4px 4px;
+}
+.embed-horizontal .temp {
+	float: right;
+	padding-right: 4px;
+}

@@ -1,0 +1,61 @@
+.mshared-cl{
+	clear: both;
+	font-size: 1px;
+	height: 1px;
+	line-height: 1px;
+}
+
+.mshared-wrapper{
+	position:relative;
+	width:100%;
+	display: block;
+}
+
+.mshared-post-block{
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin-bottom:15px;
+	padding-bottom:10px;
+}
+
+.mshared-image{
+	position:relative;
+	width:33%;
+	float: left;
+}
+
+.mshared-image a{
+	margin:0;
+	padding:0;
+	display:block;
+}
+
+.mshared-image img{
+	width:100%;
+	max-width:100%;
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+.mshared-description{
+	position:relative;
+	width:64%;
+	margin-left:3%;
+	float: left;
+}
+
+.mshared-description.no-thumb{
+	width:100%;
+	margin-left:0;
+}
+
+.mshared-description h3{
+	margin:0 0 15px 0 !important;
+	padding:0 !important;
+}
+
+.mshared-meta{
+	font-size: 0.95em;
+}

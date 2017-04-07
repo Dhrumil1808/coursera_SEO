@@ -1,0 +1,20 @@
+$(document).ready(function(){
+  $("#welcome_header").slideDown("slow");
+});
+
+jQuery(function( $ ){
+  $("#tab_seotools").hover(
+    function () {
+      $("#sub_seotools").show();
+    },
+    function () {
+      $("#sub_seotools").hide();
+    })
+  $("#tab_seotraining").hover(
+    function () {
+      $("#sub_seotraining").show();
+    },
+    function () {
+      $("#sub_seotraining").hide();
+    })
+}); 

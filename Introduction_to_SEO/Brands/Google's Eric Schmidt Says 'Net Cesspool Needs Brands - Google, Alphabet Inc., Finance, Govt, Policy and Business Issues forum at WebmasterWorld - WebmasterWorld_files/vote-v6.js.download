@@ -1,0 +1,64 @@
+
+
+var theform=1;
+
+function noWarn() {
+        theform=0;
+};
+
+$(document).ready(function() {
+
+$(window).bind('beforeunload', function(e){
+        var count=$("#post").val().length;
+        if(count&&theform) return true;
+        else e=null;
+});
+
+
+// Create a click handler for your increment button
+$(".upvote").click(function (event) {
+	event.preventDefault();
+	var newValue = 0,
+	$this = $(this),
+	forum = $this.data("forum"),
+	thread = $this.data("post"),
+	msg = $this.data("msg"),
+	set = "on",
+	$vote = $this.find(".vote");
+	$like = $this.find(".like");
+
+  if ($like.text() == "Like") 
+  {
+
+	$like.html("Unlike"); 
+	newValue = parseInt( $(this).find("span.badge").html()) + 1;
+	if( isNaN(newValue) ) { newValue = 1; }
+
+  } 
+  else 
+  { 
+	$like.html("Like");
+	newValue = parseInt( $(this).find("span.badge").html()) - 1;
+	set = "off";
+		 	
+  }; 
+
+	$(this).find("span.badge").html(newValue);
+        $.ajax({url: "https://www.webmasterworld.com/bill-tally.cgi", 
+	data: { forum: forum, thread: thread, msg: msg, set: set },
+	success: function(result) {
+	var a = result;
+	}});
+
+
+});
+
+
+
+
+});
+
+
+
+
+

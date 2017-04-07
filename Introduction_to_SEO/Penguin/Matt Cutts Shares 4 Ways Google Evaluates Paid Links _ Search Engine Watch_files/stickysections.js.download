@@ -1,0 +1,74 @@
+jQuery( document ).ready(function() {
+
+    //Ser Vars
+    var header_div = jQuery('#header');
+    var sidebar_div = jQuery('#sidebar');
+    var content_div = jQuery('#content');
+    var footer_div = jQuery('#footer');
+    var browser_window = jQuery( window );
+
+    //sticky header
+
+    function stickyHeader()
+    {
+        if (browser_window.scrollTop())
+        {
+           header_div.slideUp("slow", function() {
+                   header_div.css("position","absolute");
+                   header_div.css("display","block");
+               }
+           );
+        }
+        else
+        {
+            header_div.css("position","absolute");
+        }
+    }
+
+    browser_window.one('scroll', function() {
+            setTimeout(stickyHeader,3000);
+        }
+    );
+
+//    //Sticky Sidebar
+//
+//    var sidebar_left_offset= content_div.offset().left + content_div.outerWidth();
+//    var distance = sidebar_div.offset().top;
+//    var footer_top_offset = footer_div.offset().top - sidebar_div.outerHeight();
+//
+//    browser_window.scroll(function() {
+//    	footer_top_offset = footer_div.offset().top - sidebar_div.outerHeight();
+//		positionSidebar();
+//    });
+//
+//    browser_window.resize(function() {
+//        sidebar_left_offset = content_div.offset().left + content_div.outerWidth();
+//        positionSidebar();
+//    });
+//
+//    function positionSidebar()
+//    {
+//    	if ((sidebar_div.outerHeight() < content_div.outerHeight()) && (browser_window.width() > 680))
+//    	{
+//	        if ( browser_window.scrollTop() >= distance )
+//	        {
+//                sidebar_div.css("position","fixed");
+//                sidebar_div.css("top","0");
+//                sidebar_div.css("left", sidebar_left_offset);
+//
+//                if ( browser_window.scrollTop() >= footer_top_offset)
+//                {
+//                     sidebar_div.css("position","absolute");
+//                     sidebar_div.css("top", footer_top_offset - header_div.outerHeight());
+//                     sidebar_div.css("left", content_div.outerWidth());
+//                }
+//	        }
+//	        else if ( browser_window.scrollTop() < distance )
+//	        {
+//                sidebar_div.css("position","relative");
+//                sidebar_div.css("top","inherit");
+//                sidebar_div.css("left","inherit");
+//	        }
+//        }
+//    }
+});

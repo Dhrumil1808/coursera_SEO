@@ -1,0 +1,51 @@
+.attachment-delete {
+	display:block;
+	width:16px;
+	float:left;
+	height:16px;
+	overflow:hidden;
+	background:url(images/bullet_cross.png) no-repeat;
+	margin-right:10px;
+}
+
+h2#ace_files_heading {
+	font-size:12px; margin:10px 0 10px 0; font-weight:bold; width:80%; border-bottom:1px dotted #ccc; line-height:1; padding-bottom:5px;
+}
+
+
+
+form#cpt-attach label.header {
+	vertical-align: top;
+	disaply:inline-block;
+	text-align: left;
+	padding: 10px;
+	width: 200px;
+}
+
+
+form#cpt-attach label {
+	line-height:20px;
+}
+
+
+#post-attachments {
+	clear:both;
+	margin-top:10px;
+	float:left;
+	width:100%;
+	padding:10px 0;
+}
+
+#post-attachments ul {
+	margin:0 0 0 30px;
+	list-style-type:square;
+}
+
+#post-attachments span {
+	margin:1px 10px 0 0;
+	font-weight:bold;
+	float:left;
+}
+#post-attachments a {
+	text-decoration:none;
+}

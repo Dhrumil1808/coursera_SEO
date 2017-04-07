@@ -1,0 +1,8 @@
+jQuery(function(){
+	jQuery('.related-content-tab').click(function() {
+		clicked = jQuery('#'+jQuery(this).data('id')).toggle();
+		jQuery('.related-content').not(clicked).hide();
+	});
+
+
+})

@@ -1,0 +1,199 @@
+
+
+document.write(' \
+<style type="text/css" media="screen">\
+	 .dsq-widget ul.dsq-widget-list {\
+	 padding: 0;\
+	 margin: 0;\
+	 text-align: left;\
+	 }\
+	 img.dsq-widget-avatar {\
+	 width: 32px;\
+	 height: 32px;\
+	 border: 0px;\
+	 margin: 0px;\
+	 padding: 0px 3px 3px 0px;\
+	 float: left;\
+	 }\
+	 a.dsq-widget-user {\
+	 font-weight: bold;\
+	 }\
+	 a.dsq-widget-thread {\
+	 font-weight: bold;\
+	 }\
+	 p.dsq-widget-meta {\
+	 clear: both;\
+	 font-size: 80%;\
+	 padding: 0;\
+	 margin: 0;\
+	 }\
+	 li.dsq-widget-item {\
+	 margin: 15px 0;\
+	 list-style-type: none;\
+	 clear: both;\
+	 }\
+	 span.dsq-widget-clout {\
+	 padding: 0 2px;\
+	 background-color: #ff7300;\
+	 color: #fff;\
+	 }\
+	 table.dsq-widget-horiz td {\
+	 padding-right: 15px;\
+	 }\
+	 .dsq-widget-comment p {\
+	 display: inline;\
+	 }\
+	 </style>\
+	 <ul class="dsq-widget-list">\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/anthonytrollope/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/1468/8160/avatar92.jpg?1464116507"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/anthonytrollope/">Anthony Trollope</a>\
+	 <span class="dsq-widget-comment"><p>Really good stuff, but of course depending how large your account is, this probably isn\'t a 10 minute job :) I\'ve actually broken some of these out into ideas for projects.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/21/a-10-minute-account-audit-to-prevent-sem-fires-during-the-holidays/">A 10-minute account audit to prevent SEM fires during the holidays</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/21/a-10-minute-account-audit-to-prevent-sem-fires-during-the-holidays/#comment-3042964407">2 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Very nice</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/04/google-home-services-ads-come-to-mobile-search-then-disappear-again/">Google Home Services ads come to mobile search (then disappear again)</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/04/google-home-services-ads-come-to-mobile-search-then-disappear-again/#comment-3042421802">7 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Thumbs up</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/news/2322970/adobe-marketing-cloud-integrates-campaign-and-experience-manager">Adobe Marketing Cloud Integrates Campaign and Experience Manager</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/news/2322970/adobe-marketing-cloud-integrates-campaign-and-experience-manager#comment-3042242940">9 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>I admired that</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/news/2330146/google-pages-dashboards-now-link-to-google-analytics">Google+ Pages Dashboards Now Link to Google Analytics</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/news/2330146/google-pages-dashboards-now-link-to-google-analytics#comment-3042235881">9 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Cool</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/news/2358054/google-analytics-helps-you-filter-spider-and-bot-traffic">Google Analytics Helps You Filter Spider and Bot Traffic</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/news/2358054/google-analytics-helps-you-filter-spider-and-bot-traffic#comment-3042216811">10 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/kalifabraham/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/23026/6447/avatar92.jpg?1481185411"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/kalifabraham/">Kalif Abraham</a>\
+	 <span class="dsq-widget-comment"><p>Thumbs up!</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/07/guide-to-google-ranking-factors-part-10-backlinks/">Guide to Google ranking factors – Part 10: backlinks</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/07/guide-to-google-ranking-factors-part-10-backlinks/#comment-3041855041">15 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Excellent</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2433132/four-easy-calculated-metrics-you-can-implement-in-google-analytics">Four easy calculated metrics you can implement in Google Analytics</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2433132/four-easy-calculated-metrics-you-can-implement-in-google-analytics#comment-3040779550">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Lovely</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/news/2169479/google-adwords-video-launches-improved-targeting-youtube">Google AdWords for Video Launches with Improved Targeting on YouTube</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/news/2169479/google-adwords-video-launches-improved-targeting-youtube#comment-3040738217">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Fantastic</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2269060/how-to-start-youtube-advertising-in-9-steps">How to Start YouTube Advertising in 9 Steps</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2269060/how-to-start-youtube-advertising-in-9-steps#comment-3040704003">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Beautiful</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/news/2290086/48-billion-video-views-196-billion-ad-views-in-july">48 Billion Video Views, 19.6 Billion Ad Views in July</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/news/2290086/48-billion-video-views-196-billion-ad-views-in-july#comment-3040683039">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>Very good</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2385175/youtube-ads-getting-the-content-right">YouTube Ads: Getting the Content Right</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2385175/youtube-ads-getting-the-content-right#comment-3040564696">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p></p><p></p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/15/mobile-trends-to-help-you-stand-out-in-2017-and-beyond/">Mobile trends to help you stand out in 2017 and beyond</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/15/mobile-trends-to-help-you-stand-out-in-2017-and-beyond/#comment-3040407594">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/basheeraradman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/20978/9875/avatar92.jpg?1471969556"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/basheeraradman/">Basheer A Radman</a>\
+	 <span class="dsq-widget-comment"><p>It\'s the greatest work of the man made <a href="https://uploads.disquscdn.com/images/113b64ceb431fc23c836642816fbb42203366248507048f9a16aa497f20d289c.jpg" rel="nofollow noopener">https://uploads.disquscdn.com/...</a> <br>( A view from USA civilization )</p><p></p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2066757/seo-start-ups-vcs">SEO for Startups &amp; New Businesses: An 11 Step Plan</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2066757/seo-start-ups-vcs#comment-3040399113">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/gloria_zk/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/10127/1815/avatar92.jpg?1474897262"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/gloria_zk/">Gloria</a>\
+	 <span class="dsq-widget-comment"><p>Thank you so much for mentioning and recommending BRAND24 to your audience! ♥ It\'s so nice to see our tool in here. Greetings!</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/12/06/6-tools-for-a-better-smarter-social-media-influencer-campaign/">6 tools for a better, smarter social media influencer campaign</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/12/06/6-tools-for-a-better-smarter-social-media-influencer-campaign/#comment-3040316723">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/pauljumbo/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/22136/165/avatar92.jpg?1473414541"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/pauljumbo/">Paul Jumbo</a>\
+	 <span class="dsq-widget-comment"><p>Thanks for this post i will implement them on my youtube channel</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/08/24/12-video-seo-tips-to-improve-your-rankings/">12 video SEO tips to improve your rankings</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/08/24/12-video-seo-tips-to-improve-your-rankings/#comment-3040163879">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/freedomtoexist/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/23237/1165/avatar92.jpg?1481103785"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/freedomtoexist/">Freedom To Exist</a>\
+	 <span class="dsq-widget-comment"><p>Thanks! We\'ve just started using ADWORDS EXPRESS thanks to your article.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2374899/know-your-platforms-adwords-vs-adwords-express">Know Your Platforms: AdWords vs. AdWords Express</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2374899/know-your-platforms-adwords-vs-adwords-express#comment-3040158036">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/shawn5872mailru/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/shawn5872mailru/">shawn5872@mail.ru</a>\
+	 <span class="dsq-widget-comment"><p>Versatile exceptionally in the wake of coming cell phone individuals invested the greater part of their energy with this gadget. Negative feelings have functioned admirably in the past for brand mindfulness, yet they don\'t really help a buyer buy an item. Much obliged for your...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/24/how-neuroscience-can-help-increase-engagement-with-mobile-users/">How neuroscience can help increase engagement with mobile users</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/24/how-neuroscience-can-help-increase-engagement-with-mobile-users/#comment-3039938988">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/thedarkweblinks/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/14715/6131/avatar92.jpg?1481137657"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/thedarkweblinks/">Ron Bray</a>\
+	 <span class="dsq-widget-comment"><p>This is so awesome! I never knew this could be done. Googlism sounds like great fun as well. I’ll have to try this out the next time I have friends over. Something else to distract me when I’m working online – jokes! We all need a distraction once in a while.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/23/google-adds-real-time-data-to-its-popular-times-tool-in-search-and-maps/">Google adds real-time data to its Popular Times tool in Search and Maps</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/23/google-adds-real-time-data-to-its-popular-times-tool-in-search-and-maps/#comment-3039542028">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/garaughty/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/29/7453/avatar92.jpg?1481228569"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/garaughty/">marti garaughty</a>\
+	 <span class="dsq-widget-comment"><p>Brilliant advice, especially re playlists!</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2340726/5-advanced-youtube-seo-tactics-to-drive-more-traffic-to-your-videos-website">5 Advanced YouTube SEO Tactics to Drive More Traffic to Your Videos &amp; Website</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2340726/5-advanced-youtube-seo-tactics-to-drive-more-traffic-to-your-videos-website#comment-3038802472">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/bryantraficante/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/23358/4564/avatar92.jpg?1481038683"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/bryantraficante/">Bryan Traficante</a>\
+	 <span class="dsq-widget-comment"><p>I\'ve been reading a bunch of your articles Marie; Moz and SEW. Really great and helpful info! Do you think you\'d consider making a list of "These types of links you should definitely remove/disavow". I know the field of topic can get muddy (is it really an unnatural link, or...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2374406/penguin-recovery-should-you-be-removing-links-or-just-disavowing">Penguin Recovery: Should You Be Removing Links or Just Disavowing?</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2374406/penguin-recovery-should-you-be-removing-links-or-just-disavowing#comment-3038663216">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/spygoogly/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/22913/6525/avatar92.jpg?1480604372"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/spygoogly/">Ashley Desouza</a>\
+	 <span class="dsq-widget-comment"><p>Yeah Google is improving his features day by day and Huge information this is knowledgeable blog and I like to come again, thanks for sharing with us.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/11/23/google-adds-real-time-data-to-its-popular-times-tool-in-search-and-maps/">Google adds real-time data to its Popular Times tool in Search and Maps</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/11/23/google-adds-real-time-data-to-its-popular-times-tool-in-search-and-maps/#comment-3037587740">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/david_kleiman/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/23346/2562/avatar92.jpg?1480972847"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/david_kleiman/">David Kleiman</a>\
+	 <span class="dsq-widget-comment"><p>Somebody didn\'t read the post...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2069226/how-use-blog-commenting-get-valuable-backlinks-traffic">How to Use Blog Commenting to Get Valuable Backlinks and Traffic</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2069226/how-use-blog-commenting-get-valuable-backlinks-traffic#comment-3036884448">3 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/billfinan/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/5916/5573/avatar92.jpg?1372254247"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/billfinan/">Bill Finan</a>\
+	 <span class="dsq-widget-comment"><p>But how can you type this on a computer? This is the elusive (de facto anyway) mobile-ONLY website, not just mobile-first...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/">The Rise of Emoji and Google’s Mobile-First Movement</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/#comment-3036717935">3 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/nickathubshout/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/13143/9578/avatar92.jpg?1480966283"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/nickathubshout/">Nick at HubShout</a>\
+	 <span class="dsq-widget-comment"><p>Wow, really interesting stuff. It\'s so intriguing to see how Google and even hardware, like the new Mac, are following what used to be just a trend among teenagers.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/">The Rise of Emoji and Google’s Mobile-First Movement</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/#comment-3036708549">3 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/chriswibbe/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/uploads/users/9207/778/avatar92.jpg?1390604915"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/chriswibbe/">Chris Wibbe</a>\
+	 <span class="dsq-widget-comment"><p>Nice piece. Only on the .ws TLD, hmmm.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/">The Rise of Emoji and Google’s Mobile-First Movement</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/12/05/the-rise-of-emoji-and-googles-mobile-first-movement/#comment-3036560184">3 days ago</a></p>\
+	 </li>\
+	 </ul>\
+');

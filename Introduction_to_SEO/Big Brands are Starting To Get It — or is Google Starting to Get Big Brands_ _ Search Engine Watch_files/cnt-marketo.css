@@ -1,0 +1,85 @@
+/*  CNT Marketo Email Form */
+.cnt-marketo-form-container.spinner-background {
+    background: url('../img/ripple-64x64.gif') 50% 50% no-repeat;
+    opacity: 0.6;
+}
+
+.cnt-marketo-form-container {
+    min-height: 100px;
+    width: 100%;
+}
+
+.cnt-marketo-email-form-container,
+.cnt-marketo-email-form-container * {
+    box-sizing: border-box!important;
+}
+
+.cnt-marketo-email-form-email {
+    width:80%;
+    padding:0 10px 0 10px;
+    background-color: white;
+}
+
+.cnt-marketo-email-form-submit {
+    width:18%;
+    background: url(../img/ripple-white-24x24.svg) center no-repeat!important;
+}
+
+
+.hide-loader,
+body #sidebar .hide-loader,
+body #footer .hide-loader {
+    background-image: none!important;
+}
+
+.show-loader,
+body #sidebar .widget .show-loader,
+body #footer .show-loader {
+    color: transparent!important;
+    text-shadow: none!important;
+}
+
+
+.cnt-marketo-email-form-input,
+.cnt-marketo-email-form-submit, 
+.cnt-marketo-loader-input-spinner {
+   height: 36px; 
+   font-size: 15px;
+}
+
+/*
+.cnt-marketo-email-form-input:-webkit-autofill,
+.cnt-marketo-email-form-input:-webkit-autofill:hover,
+.cnt-marketo-email-form-input:-webkit-autofill:focus,
+.cnt-marketo-email-form-input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+*/
+
+/* CNT Marketo Email Form Widget */
+body #sidebar .widget_marketo-email-form-widget {
+    margin: 8px;
+    padding: 22px;
+    background-color: #3a3a3c;
+    color: #fff;
+}
+body #sidebar .widget_marketo-email-form-widget form {
+    padding: 0;
+    width: 100%;
+}
+
+.cnt-marketo-email-form-widget-title {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.cnt-marketo-email-form-widget-subtitle {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cnt-marketo-email-form-widget-text {
+    margin: 15px 0;
+}

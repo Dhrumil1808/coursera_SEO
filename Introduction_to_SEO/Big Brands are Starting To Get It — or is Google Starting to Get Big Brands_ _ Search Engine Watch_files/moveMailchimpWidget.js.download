@@ -1,0 +1,31 @@
+function moveWidgetToContent()
+{
+	jQuery("#content").prepend(jQuery("#widget_mailchimpsf_widget"));
+	jQuery("#widget_mailchimpsf_widget").show();
+}
+
+function moveWidgetToSidebar()
+{
+	jQuery("#social-sidebar").after(jQuery("#widget_mailchimpsf_widget"));
+}
+
+function moveMailchimpWidget()
+{
+	if (jQuery(window).width() < 680)
+	{
+		moveWidgetToContent();
+	}
+	else
+	{
+		moveWidgetToSidebar();
+	}
+}
+
+
+jQuery(window).resize(function() {
+	moveMailchimpWidget();
+});
+
+jQuery( document ).ready(function() {
+	moveMailchimpWidget();
+});

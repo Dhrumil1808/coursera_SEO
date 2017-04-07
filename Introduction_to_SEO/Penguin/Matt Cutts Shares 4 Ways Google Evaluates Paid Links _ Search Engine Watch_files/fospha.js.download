@@ -1,0 +1,688 @@
+if (typeof Fospha !== 'object') {
+
+    var Fospha = (function (windowAlias, document) {
+
+        'use strict';
+
+        var modules = {},
+            config = {},
+            data = [],
+            backupData = [],
+            tagUuid = null,
+            userUuid = null,
+            count = 0,
+            backupDataQueueSize = 0,
+            visitUuid = generateUuid(),
+            tsLoad = new Date().getTime(),
+            base = '//tag.fospha.com',
+            queue = windowAlias['fospha'].q || [];
+
+        function init() {
+            for (var i in queue) {
+                if (queue[i][0] == 'id') {
+                    tagUuid = queue[i][1] || '';
+                }
+            }
+            getConfigFile('/config/' + tagUuid, initModules);
+        }
+
+        function getTagUuid() {
+            return tagUuid;
+        }
+
+        function getModule(module) {
+            return modules[module] || {};
+        }
+
+        function getModules() {
+            return modules || {};
+        }
+
+        function findRoot() {
+            return base;
+        }
+
+        function getConfigFile(file, callback) {
+            var xhr = null;
+            if (window.XDomainRequest != undefined) {
+                // IE8-9 uses this for AJAX calls, otherwise it gives Access Denied
+                xhr = new XDomainRequest();
+            } else {
+                // Everything else should work with this
+                xhr = new XMLHttpRequest();
+            }
+            xhr.open('GET', findRoot() + file, true);
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status === 200 && callback) {
+                    callback(xhr.responseText);
+                }
+            };
+        }
+
+        function registerModule(name, module) {
+            modules[name] = module;
+        }
+
+        function initModules(json) {
+            config = JSON.parse(json);
+            for (var m in config.modules) {
+                modules[m].init(config.modules[m]);
+            }
+
+            backupDataQueueSize = config.global.dataBackupQueueSize || 5; // default queue size is 5
+            processCookie();
+            initialContact();
+            initialiseHeartbeat();
+            addEventHandlers();
+        }
+
+        function addEventHandlers() {
+            addEventListener(windowAlias, 'unload', lastContact);
+        }
+
+        function getConfig() {
+            return config;
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        function setCookie(name, value, expires, path, domain, secure) {
+            var d;
+            if (expires) {
+                d = new Date();
+                d.setTime(d.getTime() + expires * 24 * 60 * 60 * 1000);
+            }
+            document.cookie = name + "=" + escape(value) +
+                ((expires) ? "; expires=" + d.toGMTString() : "") +
+                (';path=' + (path || '/')) +
+                ((domain) ? "; domain=" + domain : "") +
+                ((secure) ? "; secure" : "");
+        }
+
+        function loadUserCookie() {
+            var userCookie = getCookie(config.global.cookie.name);
+            if (!userCookie) {
+                userCookie = generateUuid();
+                setCookie(config.global.cookie.name, userCookie, config.global.cookie.expiryDays);
+            }
+            return userCookie;
+        }
+
+        function generateUuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function processCookie() {
+            userUuid = loadUserCookie();
+        }
+
+        function initialContact() {
+            var mData = getData();
+            mData['activity'] = [{
+                'ts'            : new Date().getTime(),
+                'windowHeight'  : screen.height,
+                'windowWidth'   : screen.width,
+                'width'         : modules.activity.getWidth(),
+                'height'        : modules.activity.getHeight(),
+                'documentWidth' : windowAlias.outerWidth,
+                'documentHeight': windowAlias.outerHeight,
+                'type'          : 'viewport'
+            }];
+
+            for (var m in modules) {
+                if (modules[m] !== undefined && typeof modules[m].onLoad === 'function') {
+                    mData[m] = modules[m].onLoad();
+                }
+            }
+            sendRequest('load', mData);
+        }
+
+        function lastContact() {
+            collectModulesData('unload');
+        }
+
+        function collectModulesData(eventType) {
+            if (!eventType) {
+                eventType = 'collect';
+            }
+            var mData = getData();
+            for (var m in modules) {
+                var moduleData = modules[m].getData();
+                mData[m] = moduleData;
+
+                if (backupData[count] == undefined) {
+                    backupData[count] = []
+                }
+                backupData[count][m] = moduleData
+
+            }
+
+            sendRequest(eventType, mData);
+            count++;
+
+            if (count > backupDataQueueSize) {
+                count = 0;
+            }
+        }
+
+        function getData() {
+            var mData = {
+                'mUuid'     : generateUuid(),
+                'visit'     : {
+                    'vUuid'    : visitUuid,
+                    'url'      : windowAlias.location.href || '',
+                    'title'    : document.title || '',
+                    'tagUuid'  : tagUuid,
+                    'userAgent': navigator.userAgent,
+                    'referrer' : document.referrer || '',
+                    'isHealthy': 1
+                },
+                'timestamps': {
+                    'load': tsLoad,
+                    'post': new Date().getTime()
+                },
+                'user'      : {
+                    'uUuid': userUuid
+                },
+                'config'    : {
+                    "sessionTimeout"     : config.global.sessionTimeout,
+                    "heartbeatStart"     : config.global.heartbeatStart,
+                    "heartbeatFactor"    : config.global.hearbeatFactor || 1.5,
+                    "heartbeatIncrement" : config.global.hearbeatIncrement || 0,
+                    "heartbeatLimit"     : config.global.hearbeatLimit || 0,
+                    "backupDataQueueSize": config.global.backupDataQueueSize || 5
+                }
+            };
+            return mData;
+        }
+
+        function sendRequest(eventType, mData) {
+            mData['type'] = eventType;
+
+            // Clear backed up Data before page unload
+            if (eventType === 'unload' && backupData.length > 0) {
+                for (var key in backupData) {
+                    if (backupData.hasOwnProperty(key) && backupData[key] !== null) {
+                        if (backupData[key].hasOwnProperty('visit')) {
+                            backupData[key]['visit']['isHealthy'] = 0;
+                        }
+                        post("data=" + encodeURIComponent(JSON.stringify(backupData[key])), false);
+                    }
+                }
+            } else {
+                if (post("data=" + encodeURIComponent(JSON.stringify(mData)), eventType !== 'unload') === true) {
+                    delete backupData[count];
+                    count--;
+                }
+            }
+        }
+
+        function post(request, async, callback) {
+            try {
+                // we use the progid Microsoft.XMLHTTP because
+                // IE5.5 included MSXML 2.5; the progid MSXML2.XMLHTTP
+                // is pinned to MSXML2.XMLHTTP.3.0
+                var xhr = windowAlias.XMLHttpRequest
+                    ? new windowAlias.XMLHttpRequest()
+                    : windowAlias.ActiveXObject
+                    ? new ActiveXObject('Microsoft.XMLHTTP')
+                    : null;
+
+                xhr.open('POST', config.global.broadcastHost + '/broadcast', async);
+
+                // fallback on error
+                if ((async == true) && (typeof callback === 'function')) {
+                    xhr.onreadystatechange = function () {
+                        callback();
+                    };
+                }
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                xhr.send(request);
+            } catch (e) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function addEventListener(element, eventType, eventHandler, useCapture) {
+            if (element.addEventListener) {
+                element.addEventListener(eventType, eventHandler, useCapture);
+                return true;
+            }
+            if (element.attachEvent) {
+                return element.attachEvent('on' + eventType, eventHandler);
+            }
+            element['on' + eventType] = eventHandler;
+        }
+
+        function initialiseHeartbeat(delay) {
+            if (!delay) {
+                delay = config.global.heartbeatStart;
+            }
+            var hbTimeout = setTimeout(
+                function heartBeat() {
+                    hbTimeout = null;
+                    collectModulesData(null, true);
+                    delay = config.global.heartbeatFactor * delay + config.global.heartbeatIncrement;
+                    if ((config.global.heartbeatLimit > 0) && (config.global.heartbeatLimit < delay)) {
+                        delay = config.global.heartbeatLimit;
+                    }
+                    initialiseHeartbeat(delay);
+                }, delay * 1000
+            );
+        }
+
+        return {
+            init            : init,
+            getConfig       : getConfig,
+            getModules      : getModules,
+            getModule       : getModule,
+            addEventListener: addEventListener,
+            registerModule  : registerModule,
+            getTagUuid      : getTagUuid
+        }
+
+    })(window, document);
+
+    Fospha.pageComplexity = (function (Fospha) {
+        var config = {},
+            wordCount = 0,
+            imageCount = 0,
+            moduleName = 'pageComplexity',
+            loadedTimestamp = new Date().getTime();
+
+        function init(_config) {
+            config = _config;
+        }
+
+        function getWordCount() {
+
+            var wordCount = 0;
+
+            if (window.jQuery) {
+                var visibleText = $('div *:not(:has(*)):visible').map(function() {
+                    return $.text([this]);
+                }).get().join(" ");
+
+                // get the word count
+                wordCount = visibleText.split(/ +/).length;
+
+            } else {
+                var xStr, wordArray;
+                var div = document.getElementsByTagName("body")[0];
+
+                xStr = div.innerHTML;
+                xStr = xStr.replace(/\r/g, " ");
+                xStr = xStr.replace(/\n/g, " ");
+                xStr = xStr.replace(/<iframe[.*]<\/iframe>/gi, " ");
+                xStr = xStr.replace(/<!--[\w\W\d\s]*?-->/gi, " ");
+                xStr = xStr.replace(/<script[\w\W\d\s]*?<\/script>/gi, " ");
+                xStr = xStr.replace(/<style[\w\W\d\s]*?<\/style>/gi, " ");
+                xStr = xStr.replace(/<img[.*]<\/img>/gi, " ");
+                xStr = xStr.replace(/<\/?[^>]+>/gi, " ");
+                xStr = xStr.replace(/\s+/g, " ");
+                xStr = xStr.replace(/\t+/g, " ");
+                wordArray = xStr.split(" ");
+                wordCount = wordArray.length;
+            }
+
+            return wordCount;
+        }
+
+        function getImageCount() {
+
+            var numberOfImage = 0;
+            var imgs = document.getElementsByTagName("img");
+
+            for (var i = 0; i < imgs.length; i++) {
+                var img = imgs[i];
+                if (img.width > 1 && img.height > 1 && (img.offsetWidth || img.offsetHeight || img.getClientRects().length)) {
+                    numberOfImage++;
+                }
+            }
+
+            var pics = document.getElementsByTagName("picture");
+
+            for (var i = 0; i < pics.length; i++) {
+                var pic = pics[i];
+                if (pic.width > 1 && pic.height > 1 && (pic.offsetWidth || pic.offsetHeight || pic.getClientRects().length)) {
+                    numberOfImage++;
+                }
+            }
+
+            var svgs = document.getElementsByTagName("svg");
+
+            for (var i = 0; i < svgs.length; i++) {
+                var svg = pics[i];
+                if (svg.width > 1 && pic.height > 1 && (pic.offsetWidth || pic.offsetHeight || pic.getClientRects().length)) {
+                    numberOfImage++;
+                }
+            }
+
+            return numberOfImage;
+        }
+
+        function getData() {
+            var isActive = (typeof config !== 'undefined' || config !== null ) && config.hasOwnProperty('status')
+                ? config.status.active
+                : false;
+
+            return {
+                'wordCount' : (isActive == true) ? getWordCount() : wordCount,
+                'imageCount': (isActive == true) ? getImageCount() : imageCount,
+                'ts'        : loadedTimestamp
+            }
+        }
+
+        return {
+            init         : init,
+            getData      : getData,
+            getWordCount : getWordCount,
+            getImageCount: getImageCount
+        }
+    })(Fospha);
+
+    Fospha.activity = (function (Fospha) {
+
+        var config = {},
+            data = [],
+            mouseObject = {},
+            isMobile = null,
+            moduleName = 'activity',
+        // Mouse vars
+            currentPosition = {"x": 0, "y": 0},
+            numberOfMouseMovements = 0,
+            lastPosition = {"x": 0, "y": 0},
+        // Touch vars
+            lastTouchEvent = {},
+        // touchQueue = [],
+            xDown = 0,
+            yDown = 0,
+            tsDown = null,
+            numberOfTouches = 0,
+            lastTouchTime = null,
+        // Scroll vars
+            lastScrollEvent = {},
+            numberOfScrolls = 0,
+            scrollQueue = [],
+        // Key vars
+            lastKeypressEvent = {},
+            numberOfKeypresses = 0,
+        // Viewport vars
+            lastViewportEvent = {},
+            numberOfViewportChanges = 0,
+            loadedTimestamp = new Date().getTime();
+
+        function init(_config) {
+            config = _config;
+            // console.log('Started Fospha.activity.init()');
+            addTouchHandlers();
+            addScrollHandlers();
+            addMouseHandlers();
+            addKeyHandlers();
+            addViewportHandlers();
+
+        }
+
+        function queueEvent(eventType, eventObject) {
+            var event = eventObject;
+            event['type'] = eventType;
+            data.push(event);
+        }
+
+        function getData() {
+            // console.log('getData from ' + moduleName);
+            var returnData = data;
+            data = [];
+            return returnData;
+        }
+
+        /**************************************************************************/
+        /*                            M O U S E                                   */
+        /**************************************************************************/
+        function addMouseHandlers() {
+            Fospha.addEventListener(document, 'mousemove', mousemoveEventHandler);
+            setInterval(mouseIntervalHandler, config.mouse.samplingInterval);
+        }
+
+        function mousemoveEventHandler(event) {
+            var eventDoc, doc, body;
+            event = event || window.event; // IE-ism
+
+            if (event.pageX == null && event.clientX != null) {
+                eventDoc = (event.target && event.target.ownerDocument) || document;
+                doc = eventDoc.documentElement;
+                body = eventDoc.body;
+
+                event.pageX = event.clientX +
+                    (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                    (doc && doc.clientLeft || body && body.clientLeft || 0);
+                event.pageY = event.clientY +
+                    (doc && doc.scrollTop || body && body.scrollTop || 0) -
+                    (doc && doc.clientTop || body && body.clientTop || 0 );
+            }
+            currentPosition = {"x": event.pageX, "y": event.pageY, "ts": new Date().getTime()};
+            numberOfMouseMovements++;
+        }
+
+        function mouseIntervalHandler() {
+            /* No action if there wasn't any mouse movement */
+            if (lastPosition.x == currentPosition.x && lastPosition.y == currentPosition.y) {
+                return;
+            }
+            queueEvent("mousemove", {
+                'ts': currentPosition.ts,
+                'x': currentPosition.x,
+                'y': currentPosition.y,
+                'events': numberOfMouseMovements
+            });
+            lastPosition = currentPosition;
+            numberOfMouseMovements = 0;
+        }
+
+        /**************************************************************************/
+        /*                              K E Y                                     */
+        /**************************************************************************/
+        function addKeyHandlers() {
+            Fospha.addEventListener(document, 'keypress', keypressEventHandler);
+            setInterval(keypressIntervalHandler, config.key.samplingInterval);
+        }
+
+        function keypressEventHandler() {
+            lastKeypressEvent = {"ts": new Date().getTime()};
+            numberOfKeypresses++;
+        }
+
+        function keypressIntervalHandler() {
+            /* No action if there weren't any keypresses */
+            if (numberOfKeypresses == 0) {
+                return;
+            }
+            queueEvent("keypress", {
+                'ts': lastKeypressEvent.ts,
+                'events': numberOfKeypresses
+            })
+            numberOfKeypresses = 0;
+        }
+
+        /**************************************************************************/
+        /*                            T O U C H                                   */
+        /**************************************************************************/
+        function addTouchHandlers() {
+            Fospha.addEventListener(document, 'touchstart', touchstartEventHandler);
+            Fospha.addEventListener(document, 'touchmove', touchmoveEventHandler);
+            setInterval(touchIntervalHandler, config.touch.samplingInterval);
+        }
+
+        function touchstartEventHandler(evt) {
+            xDown = evt.touches[0].clientX;
+            yDown = evt.touches[0].clientY;
+            tsDown = new Date().getTime();
+            lastTouchTime = tsDown;
+            lastTouchEvent = {
+                "down": {
+                    "x": xDown,
+                    "y": yDown,
+                    "ts": tsDown
+                }
+            };
+            numberOfTouches++;
+        };
+
+        function touchmoveEventHandler(evt) {
+            if (!xDown || !yDown || !tsDown) {
+                return;
+            }
+
+            var xUp = evt.touches[0].clientX;
+            var yUp = evt.touches[0].clientY;
+
+            var xDiff = xDown - xUp;
+            var yDiff = yDown - yUp;
+
+            if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
+                if (xDiff > 0) {
+                    touchType = 'left';
+                } else {
+                    touchType = 'right';
+                }
+            } else if (Math.abs(xDiff) < Math.abs(yDiff)) {
+                if (yDiff > 0) {
+                    touchType = 'up';
+                } else {
+                    touchType = 'down';
+                }
+            } else {
+                touchType = 'tap';
+            }
+            lastTouchTime = new Date().getTime();
+            lastTouchEvent = {
+                "down"  : {
+                    "x" : xDown,
+                    "y" : yDown,
+                    "ts": tsDown
+                },
+                "up"    : {
+                    "x" : xUp,
+                    "y" : yUp,
+                    "ts": lastTouchTime
+                },
+                "swipe" : touchType,
+                "events": ++numberOfTouches,
+                "ts"    : lastTouchTime
+            };
+            // touchQueue.push(lastTouchEvent);
+            /* reset values */
+            xDown = null;
+            yDown = null;
+            tsDown = null;
+        };
+
+        function touchIntervalHandler() {
+            if (numberOfTouches == 0) {
+                return;
+            }
+            queueEvent('touch', lastTouchEvent);
+            lastTouchEvent = {};
+            numberOfTouches = 0;
+            xDown = yDown = tsDown = lastTouchTime = null;
+        }
+
+        /**************************************************************************/
+        /*                        V I E W P O R T                                 */
+        /**************************************************************************/
+        function getWidth() {
+            return window.innerWidth ||
+                document.documentElement.clientWidth ||
+                document.body.clientWidth ||
+                document.body.offsetWidth;
+        }
+
+        function getHeight() {
+            return window.innerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight ||
+                document.body.offsetHeight;
+        }
+
+        function addViewportHandlers() {
+            Fospha.addEventListener(window, 'resize', viewportEventHandler);
+            setInterval(viewportIntervalHandler, config.viewport.samplingInterval);
+        }
+
+        function viewportEventHandler() {
+            lastViewportEvent = {"ts": new Date().getTime()};
+            numberOfViewportChanges++;
+        }
+
+        function viewportIntervalHandler() {
+            /* No action if there weren't any viewport changes */
+            if (numberOfViewportChanges == 0) {
+                return;
+            }
+            queueEvent("viewport", {
+                'ts': lastViewportEvent.ts,
+                'height': getHeight(),
+                'width': getWidth(),
+                'documentWidth': window.outerWidth,
+                'documentHeight': window.outerHeight,
+                'events': numberOfViewportChanges
+            })
+            numberOfViewportChanges = 0;
+        }
+
+        /**************************************************************************/
+        /*                            S C R O L L                                 */
+        /**************************************************************************/
+        function addScrollHandlers() {
+            Fospha.addEventListener(document, 'scroll', scrollEventHandler);
+            setInterval(scrollIntervalHandler, config.scroll.samplingInterval);
+        }
+
+        function scrollEventHandler(evt) {
+            lastScrollEvent = {"ts": new Date().getTime()};
+            numberOfScrolls++;
+        };
+
+        function scrollIntervalHandler() {
+            if (numberOfScrolls == 0) {
+                return;
+            }
+            queueEvent('scroll', {
+                'ts': lastScrollEvent.ts,
+                'x': window.scrollX,
+                'y': window.scrollY
+            });
+            scrollQueue = [];
+            numberOfScrolls = 0;
+        }
+
+        return {
+            init     : init,
+            getData  : getData,
+            getWidth : getWidth,
+            getHeight: getHeight
+        }
+
+    })(Fospha);
+
+    Fospha.registerModule('activity', Fospha.activity);
+    Fospha.registerModule('pageComplexity', Fospha.pageComplexity);
+
+    Fospha.init();
+
+}

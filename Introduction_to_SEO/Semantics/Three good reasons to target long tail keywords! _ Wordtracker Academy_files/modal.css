@@ -1,0 +1,64 @@
+/* Generic CSS for popup*/
+.mc-modal-bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background: #000;
+    background-color: #000;
+    opacity: .5;
+
+    /* settings for velocity */
+    opacity: 0;
+}
+.mc-layout__modalContent{
+    display: block;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch; /* Fix iOS scrolling bug */
+}
+.mc-closeModal{
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: auto;
+    height: 50px;
+    /*background: url('/images/X.png') no-repeat center center;*/
+    background-size: 26px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+/* Box sizing for all elements inside mc-modal */
+.mc-modal *{
+    box-sizing: border-box;
+}
+
+/* Modal basic styles */
+.mc-modal{
+    display: none;
+    z-index: 1002;
+    position: fixed;
+    top: 15%;
+    bottom: 60px;
+    /* center modal */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 980px;
+    background: transparent;
+
+    /* settings for velocity */
+    opacity: 0;
+}
+
+/* Media Queries */
+@media only screen and (max-width:980px) {
+    .mc-modal { top:45px; width: 80%; }
+}

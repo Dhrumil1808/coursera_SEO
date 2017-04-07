@@ -1,0 +1,452 @@
+jQuery(function(){
+	//menu
+	jQuery('.header-menu li:has(ul)').hover(
+		function(){
+			var sub = jQuery(this).find('ul');
+			sub.show();
+		},
+		function() {
+			var sub = jQuery(this).find('ul');
+			sub.hide();
+		}
+	);
+    
+	
+	//fire google analytics event on click
+	jQuery('.gae-click').click(function(){
+		var category = jQuery(this).data('gae-category');
+		var action = jQuery(this).data('gae-action');
+		var label = jQuery(this).data('gae-label');
+		var value = jQuery(this).data('gae-value');
+		ga_track_event(category, action, label, value);
+	});
+
+	//fire google analytics event after page load
+	fire_ga_event();
+
+
+	//bootstrap modal shifts body because of scrollbar, we shift it back
+	jQuery('.modal').on('show.bs.modal', function (e) {
+  		ww 	= window.innerWidth;
+		bw 	= jQuery('body').innerWidth();
+		diff = ww - bw;
+	//alert('window '+ww+' | body '+ bw + ' | diff '+ (ww - bw));			
+		if (diff > 0 && diff < 20 && ww > 1000) {			
+			offset = (-1 * diff);			
+  			jQuery('body').css('margin-left', offset+'px');
+  		} 	
+	});
+	
+	jQuery('.modal').on('hide.bs.modal', function (e) {  		
+  		jQuery('body').css('margin-left', '0px');	
+	});
+
+
+	//Gravity forms in modal. If there is more than 1 section split them into columns
+	gform_sec2col();
+	jQuery(document).bind('gform_post_render', function(){
+		gform_sec2col();
+	});
+
+ 
+	
+	
+	//goToByScroll('content');
+	deviceSpecific = {
+			iPad: 'width=device-width, user-scalable=yes, minimum-scale=0.75, maximum-scale=3',
+			android: 'width=device-width, target-densitydpi=device-dpi'
+	}
+	
+	if (navigator.userAgent.match(/iPad/i)) {
+		jQuery('meta[name=viewport]').attr('content', deviceSpecific.iPad);
+	} else if (navigator.userAgent.match(/android/i)) { 
+		//jQuery('meta[name=viewport]').attr('content', deviceSpecific.android);
+	}
+	
+	
+	/*
+	jQuery(window).load(function() {
+		if (MyAjax.postID) {
+			jQuery.ajax({
+				url: MyAjax.ajaxurl, type : 'POST', data : { 
+														action : 'commentCountUpdate', 
+														postID : MyAjax.postID, 
+														security : MyAjax.ajaxnonce,
+														doit : 'true' 
+													},
+				success : function(data) { }
+			});
+		}
+	});
+	*/
+	
+	jQuery('.email-post').click(function(e) {
+		e.preventDefault();
+		sharePostByEmail();
+	});
+	
+	jQuery('.email-share').click(function(e) {
+		jQuery('#shareEmailModal, .modal-backdrop').show(0, function() {
+			jQuery(this).addClass('in');
+		});
+	});
+	
+	jQuery(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			close_share_modal();
+		}
+	});
+	
+	jQuery('.modal-header .close').click(function(e) {
+		close_share_modal();
+	});
+	
+	
+	jQuery('#trending-titles li a').click(function(e) {
+		jQuery(this).parents('#trending-titles').find('li').removeClass('active');
+		jQuery(this).closest('li').addClass('active');
+		e.preventDefault();
+	});
+	
+	jQuery('.most-read-widget').click(function() {
+		hide_other_baw();
+		jQuery('#mostviewed').show(); 
+		jQuery(this).addClass('active');
+	});
+	
+	jQuery('.most-commented-widget').click(function() {
+		hide_other_baw();
+		jQuery('#mostcommented').show();
+		
+	});
+	
+	jQuery('.hot-widget').click(function() {
+		hide_other_baw();
+		jQuery('#hot').show(); 
+	})
+	
+	function hide_other_baw() {
+		jQuery('#mostwhat ul').hide();
+	}
+	
+	
+	jQuery('.events-table td a').attr('target', '_self');
+	
+	jQuery('#footer .mc_merge_var input').attr('placeholder', 'name@emailaddress.com');
+  
+	keepFocus = false;
+	
+	jQuery('#searchform #s').focus(search_bar_expand);	
+	
+	jQuery('.normal_search #searchsubmit').mousedown(function(e) {
+		keepFocus = true;
+
+	});
+	
+	jQuery('#searchform #s').blur(search_bar_shrink);
+	
+	
+  //add 'button' class to Events widget All events button
+  event_widget = jQuery('#widget_em_widget');
+  event_widget.find('.all-events-link a').addClass('button');
+  event_widget.find('li a').addClass('post-title');
+  
+  // Primeiro item sem borda
+  //jQuery("#menu li:first a, #widget_pages li:first a, #widget_categories li:first a, #widget_archive li:first a, #widget_recent_comments li:first, #widget_recent_entries li:first a, #widget_rss li:first,.links ul li:first a, #widget_meta li:first a").addClass('noborder');
+  jQuery("#sidebar ul li:first-child, #sidebar ul li:first-child a").addClass("noborder");
+  
+  // BackToTop
+  jQuery('.backtotop').click(function(){ backtotop(); return false; });
+  
+  //Mailchimp-Widget
+  jQuery('#mc_mv_EMAIL').attr('placeholder', 'name@emailaddress.com');
+  jQuery("#mc_message").html('');
+  jQuery("#mc_signup_form").submit(function(){       
+      jQuery("#mc_message").html('<span id="mailchimp-subscribing">Subscribing. Please wait..<span>');
+  });
+  
+  //Light box popup submit through mailchimp widget
+  jQuery('body').delegate('#pty_submit', 'click', function() {      
+      jQuery('#mc_mv_EMAIL').val(jQuery('#pty_email').val());            
+      jQuery('#mc_signup_form').data('lightbox', true).submit();
+      
+      $offset = jQuery('#widget_mailchimpsf_widget').offset();
+      
+      $options = {
+            left: $offset.left - 170,
+            top: $offset.top - 150,
+            scale: 0.1,
+            opacity: 0
+      }     
+      
+      jQuery('#pty_popup').transition($options, function(){
+          jQuery('#pty_close').click();
+      });    
+      
+      return false;
+  });  
+
+  cntOpenModal();
+
+
+});
+
+
+function cntPositionWallpaper()
+{
+      header_h   = jQuery('#header').height();
+      footer_h   = jQuery('#footer').height();
+      footer_top = jQuery('#footer').offset().top;
+      scroll_pos = jQuery(window).scrollTop();
+      window_h   = jQuery(window).height();
+      document_h = jQuery(document).height();
+
+      $wallpaper_bar = jQuery('#wallpaper-bar');
+      wallpaper_h    = $wallpaper_bar.height();
+      wallpaper_top  = $wallpaper_bar.offset().top;
+
+      if ($wallpaper_bar.hasClass('wallpaper-pin-top')) {
+          if ( wallpaper_top + wallpaper_h >= footer_top) {
+              $wallpaper_bar.removeClass('wallpaper-pin-top');
+              $wallpaper_bar.addClass('wallpaper-pin-bottom');
+          }
+      } 
+      else if ($wallpaper_bar.hasClass('wallpaper-pin-bottom')) {
+          if ( wallpaper_top >= scroll_pos) {
+              $wallpaper_bar.removeClass('wallpaper-pin-bottom');
+              $wallpaper_bar.addClass('wallpaper-pin-top');
+          }
+      }
+      else {
+          if ( wallpaper_top + wallpaper_h >= footer_top) {
+              $wallpaper_bar.addClass('wallpaper-pin-bottom');
+          }
+          else {
+              $wallpaper_bar.addClass('wallpaper-pin-top');
+          }
+      }
+
+      if (scroll_pos < header_h) {
+          $wallpaper_bar.removeClass('wallpaper-pin-top');
+          $wallpaper_bar.removeClass('wallpaper-pin-bottom');
+      }
+}
+
+function cntOpenModal()
+{
+	var args = getQueryParams(window.location.search)
+	if (args.modal != '') {
+		jQuery('#'+args.modal).modal('show');
+	}
+}
+
+
+	
+function close_share_modal() {
+	jQuery('.modal-backdrop, #shareEmailModal').removeClass('in');
+	setTimeout(function(){ jQuery('.modal-backdrop, #shareEmailModal').hide(); }, 300);
+}
+
+
+//Gravity forms in modal. If there is more than 1 section split them into columns
+function gform_sec2col () {
+	jQuery('.modal').each(function() {
+		var modal_form_sections = jQuery(this).find('.gform_fields .gsection');		
+		if (modal_form_sections.length > 1)  {
+			var col_width = 12 / modal_form_sections.length;
+			modal_form_sections.each(function(){
+				if (!jQuery(this).parent().hasClass('col-sm-'+col_width)) {
+					jQuery(this).nextUntil('.gsection').andSelf().wrapAll('<div class="col-sm-'+col_width+'"></div>');
+				}
+			});
+		}
+	});
+	
+}
+
+
+
+
+function goToByScroll(id){
+    jQuery('html,body').animate({scrollTop: jQuery("#"+id).offset().top},'slow');
+}
+
+
+
+
+function show_mob_menu() {
+	jQuery('#header').addClass('hmenu-mob');
+	do_menu_hover = false;
+}
+
+function hide_mob_menu() {
+	jQuery('#header').removeClass('hmenu-mob');
+	jQuery('#menu-container .sub-menu').hide();
+	do_menu_hover = true;
+}
+
+function is_mobile_view() {
+	if (jQuery('#menu').width() <= header_menu_width_on_load || jQuery('#menu').width() <= 400) {
+		return true;
+	}
+	return false;
+}
+
+function menu_slide_up() {
+	if (do_menu_hover) {
+		jQuery(this).children('ul').slideUp();
+	}
+}
+
+function menu_slide_down() {
+	//if (do_menu_hover && jQuery(this).attr('id') !== current_menu_id || (do_all_hover)) {
+	if (do_menu_hover && !jQuery(this).find('#'+ current_menu_id)[0] || (do_all_hover)) {
+		if (jQuery(this).children('ul').queue().length) return false;
+		jQuery(this).children('ul').slideDown();
+	}
+}
+
+
+function search_bar_expand() {
+	if (!jQuery(this).parents('#searchform').hasClass('cnt_search_form')) {
+		jQuery('#social-buttons').fadeOut('fast');
+		jQuery(this).animate({'width':'265px'});
+	}
+}
+
+function search_bar_shrink() {
+	if (!keepFocus) {
+		if (!jQuery(this).parents('#searchform').hasClass('cnt_search_form')) {
+			jQuery('#social-buttons').fadeIn('fast');
+			jQuery(this).animate({'width':'90px'});
+		}
+	}
+}
+
+
+
+
+function user_order_fields() {
+	
+	
+	
+}
+
+
+/*
+*   Track events in google analytics
+ */
+function ga_track_event(category, action, opt_label, opt_value, opt_noninteraction)
+{      
+    if (typeof _gaq != 'undefined') {        
+        opt_label = (typeof opt_label != 'undefined') ? opt_label : null;
+        opt_value = (typeof opt_value != 'undefined') ? parseInt(opt_value) : null;
+        opt_noninteraction = (typeof opt_noninteraction != 'undefined') ? opt_noninteraction : null;
+        
+        _gaq.push(['_trackEvent', category, action, opt_label, opt_value, opt_noninteraction]);        
+    }
+    else
+    {
+        /*
+            Enable event tracking through Universal analytics via google tag manager. _gaq is no longer available in this instance.
+        */
+        if (typeof ga != 'undefined')
+        {
+            var trackerName = ga.getAll()[0].get('name'); //Grabs the tracker name for current page. Now required in ga send call.
+            if (trackerName)
+            {
+                opt_label = (typeof opt_label != 'undefined') ? opt_label : null;
+                opt_value = (typeof opt_value != 'undefined') ? parseInt(opt_value) : null;
+                opt_noninteraction = (typeof opt_noninteraction != 'undefined') ? opt_noninteraction : null;
+                ga( trackerName + '.send', 'event', category, action, opt_label, opt_value, {nonInteraction: opt_noninteraction});
+            }
+        }
+    }
+}
+
+
+//check url if it has gae_category and gae_action args fire google analytics event
+function fire_ga_event()
+{
+	var query = getQueryParams(window.location.search);
+
+	var category = query.gae_category;
+	var action = query.gae_action;
+	var label = query.gae_label;
+	var value = query.gae_value;
+	if (category && action) {
+		ga_track_event(category, action, label, value);
+	}
+}
+
+
+window.onload = function() {
+	/*setTimeout(function() {
+		if (jQuery('#content').outerHeight() > jQuery('#sidebar').height()) {
+			jQuery('#sidebar').height(jQuery('#content').outerHeight());
+		}
+	}, 1000);*/
+	jQuery('.nr_title').addClass('content-title').removeClass('nr_title');
+};
+
+
+
+function sharePostByEmail() {
+	jQuery.ajax({
+		url: cmajax.ajaxurl, type : 'POST', dataType : 'json', data : { 
+												action : 'sharePostByEmail', 
+												security : MyAjax.share_email_nonce,
+												mail_from : jQuery('input.mail-from').val(),
+												mail_to : jQuery('input.mail-to').val(),
+												postID : MyAjax.postID,
+											},
+		success : function(data) { 
+			if (data.success == 'false') {
+				jQuery('.share-email-error').html(data.message).show();
+			} else if (data.success == 'true') {
+				jQuery('.share-email-error, .share-email-body').hide();
+				jQuery('.share-email-success').show();
+			}
+			
+		}
+    });
+}
+
+
+
+//get arguments from query, usually window.location.search
+function getQueryParams(qs) 
+{
+    qs = qs.split("+").join(" ");
+
+    var params = {}, tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])]
+            = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+} 
+
+
+
+//Fospha/Engage
+<!--//<![CDATA[
+   var m3_u = "https://hlc.logo-net.co.uk/Delivery/DBURL.php";
+   var strPURL = parent.document.URL;
+   strPURL = strPURL.replace(/&/g, "^");
+   strPURL = strPURL.toLowerCase();
+   strPURL = strPURL.replace(/</g, "-1");
+   strPURL = strPURL.replace(/>/g, "-2");
+   strPURL = strPURL.replace(/%3c/g, "-1");
+   strPURL = strPURL.replace(/%3e/g, "-2");
+   var T = new Date();
+   var cMS = T.getTime();
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?SDTID=133");
+   document.write ('&PURL=' + strPURL);
+   document.write ('&CMS=' + cMS);
+   document.write ("'></scr"+"ipt>");
+//]]>-->

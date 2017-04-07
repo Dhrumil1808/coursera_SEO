@@ -1,0 +1,7 @@
+(function ($) {
+
+	$(window).on("hashchange", function () {
+    	window.scrollTo(window.scrollX, window.scrollY - $('div#header').outerHeight());
+	});
+
+}(jQuery));

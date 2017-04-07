@@ -1,0 +1,10 @@
+// JavaScript Loader
+$js_path = "/js/"; // change upon deployment
+
+function js_include(js_file){
+  document.write('<script type="text/javascript" src="'+$js_path+js_file+'"></script>'); 
+}
+
+js_include("jquery-min.js");
+js_include("jquery.colorbox.js");
+js_include("menu-dropdown.js");

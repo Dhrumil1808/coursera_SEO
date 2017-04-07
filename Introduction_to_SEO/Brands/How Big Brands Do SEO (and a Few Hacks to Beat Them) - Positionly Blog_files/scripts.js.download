@@ -1,0 +1,463 @@
+/*
+Bones Scripts File
+Author: Eddie Machado
+
+This file should contain any js scripts you want to add to the site.
+Instead of calling it in the header or throwing it inside wp_head()
+this file will be called automatically in the footer so as not to
+slow the page load.
+
+*/
+
+
+function getCookie(c_name){
+    var i,x,y,ARRcookies=document.cookie.split(";");
+
+    for (i=0;i<ARRcookies.length;i++)
+    {
+        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+        x=x.replace(/^\s+|\s+$/g,"");
+        if (x==c_name)
+        {
+            return unescape(y);
+        }
+     }
+}
+
+// IE8 ployfill for GetComputed Style (for Responsive Script below)
+if (!window.getComputedStyle) {
+	window.getComputedStyle = function(el, pseudo) {
+		this.el = el;
+		this.getPropertyValue = function(prop) {
+			var re = /(\-([a-z]){1})/g;
+			if (prop == 'float') prop = 'styleFloat';
+			if (re.test(prop)) {
+				prop = prop.replace(re, function () {
+					return arguments[2].toUpperCase();
+				});
+			}
+			return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+		}
+		return this;
+	}
+}
+
+function checkCounters(){
+	if (( typeof fblikes !== "undefined") && (typeof tweets !== "undefined") && (typeof buffers !== "undefined") && (typeof gplusone !== "undefined") && (typeof linkedin !== "undefined") ) {
+	// all counters have been set with values
+
+	// console.log("before comparation","fblikes", parseInt(fblikes), "tweets", parseInt(tweets), "buffers", parseInt(buffers), "gplusone", parseInt(gplusone),"linkedin", parseInt(linkedin));
+	// console.log("fblikes", fblikes, "tweets", tweets, "buffers", buffers, "gplusone", gplusone, "linkedin", linkedin);
+
+	var totalLikeCountFromFrontend = parseInt(fblikes) + parseInt(tweets) + parseInt(buffers) + parseInt(gplusone) + parseInt(linkedin);
+	// console.log("totalLikeCountFromFrontend",totalLikeCountFromFrontend);
+	// console.log("totalLikeCountFromBackend",totalLikeCountFromBackend);
+
+	jQuery("#total-share-count").text(totalLikeCountFromFrontend);
+	jQuery(".shareCount").text(totalLikeCountFromFrontend);
+
+	console.log("debug totalLikeCountFromFrontend, totalLikeCountFromBackend", totalLikeCountFromFrontend, totalLikeCountFromBackend);s
+
+	// if(totalLikeCountFromFrontend != totalLikeCountFromBackend){
+	// 	// there is reason for updateing post counters (custom meta fields)
+	// 	jQuery.ajax({
+	// 	    type: 'POST',
+	// 	    url: ajaxurl, //wordpres supplies this global variable. use it.
+	// 	    data: ({action: 'save_like_counters', nonce: nonce, postID: postID, fblikes: fblikes, tweets: tweets, buffers: buffers, gplusone: gplusone, linkedin: linkedin}),
+	// 	    success: function(resp) {
+	// 	        if(!resp){ console.log("error!") }else{ console.log("Post like/share counters have been updated!" ) }
+	// 	    }
+	// 	});
+	// }
+ }
+};
+
+
+// as the page loads, call these scripts
+jQuery(document).ready(function($) {
+
+	/*
+	Responsive jQuery is a tricky thing.
+	There's a bunch of different ways to handle
+	it, so be sure to research and find the one
+	that works for you best.
+	*/
+
+	/* getting viewport width */
+	var responsive_viewport = $(window).width();
+
+	/* if is below 481px */
+	if (responsive_viewport < 481) {
+
+	} /* end smallest screen */
+
+	/* if is larger than 481px */
+	if (responsive_viewport > 481) {
+
+	} /* end larger than 481px */
+
+	/* if is above or equal to 768px */
+	if (responsive_viewport >= 768) {
+
+		/* load gravatars */
+		$('.comment img[data-gravatar]').each(function(){
+			$(this).attr('src',$(this).attr('data-gravatar'));
+		});
+
+	}
+
+	/* off the bat large screen actions */
+	if (responsive_viewport > 1030) {
+	}
+
+	ctaBtnBarEl = $("#cta-button-bar-wrap");
+
+	if (ctaBtnBarEl) {
+		// it is a single post page
+		dummyEl = $("#dummy-el-just-after-ctabar");
+		sidebarSocials = $("#fixedContent");
+
+		if (sidebarSocials.length) {
+			// it wide enought for sidebar to appear
+			fixedContentBasePosition = $("#fixedContent").offset().top;
+			var hellobarHeight = 0;
+
+			if ($("#push-content").length) {
+				if ($("#push-content").is(':visible')){
+					hellobarHeight = $("#push-content").outerHeight(true);
+					$("#fixedContent").css( "top", 185 + hellobarHeight);
+				}
+			}
+		}
+
+		$(window).scroll(function(){
+			// make ctaBtnBar fixed at the bottom of a page once it becames fully visible
+			if(dummyEl.length){
+				if ($(window).scrollTop() + $(window).height() >= dummyEl.offset().top){
+				   $("body").addClass("fixedCtaBar");
+				}
+				else{
+					 $("body").removeClass("fixedCtaBar");
+				}
+			}
+
+	    // make sideBarSocials fixed at proper height
+	    if(sidebarSocials.length){
+  	    if ($(window).scrollTop() + 20 >= fixedContentBasePosition){
+					$("#fixedContent").addClass("fixedSideBarSocials");
+					$("#fixedContent").css( "top", 20 + hellobarHeight);
+  	    }
+  	    else{
+					$("#fixedContent").removeClass("fixedSideBarSocials");
+					$("#fixedContent").css( "top", 185 + hellobarHeight );
+  	    }
+	    }
+		});
+	}
+
+	// Google Analytics plugins
+		// A Google Analytics plugin for measuring active time on site
+		riveted.init();
+
+		// A Google Analytics plugin for measuring page scrolling
+		$.scrollDepth({
+		  elements: ['#cta-button-bar-wrap', '#pagination']
+		});
+
+
+	// add all your scripts here
+
+	//blockquote styling
+	$('.entry-content blockquote').each(function(){
+		var H = $(this).outerHeight();
+		H = H + 50;
+		$(this).addClass('wrapped').wrap(function() {
+		  return "<div class='blockquoteWrap' style='height:" + H + "px;'><div></div></div>";
+		});
+	});
+
+	//hellobar
+	$('#hello-bar a').click(function(){
+	  var date = new Date();
+	  date.setTime(date.getTime()+(120*24*60*60*1000));
+	  var expires = "expires="+date.toGMTString();
+	  document.cookie = 'hellobar=true; ' + expires;
+	  $("#push-content").hide();
+	  hellobarHeight = 0;
+	  $("#fixedContent").css( "top", 185);
+	});
+
+	$popupWraper = $("#popup-wrapper");
+
+	if($popupWraper.length){
+		// popup is turn on in theme settings
+		if(window.location.href.indexOf("utm_source=Positionly+Newsletter") == -1){
+			// and the URL does not contain any utm's
+			var value = getCookie('popup_newsletter');
+
+			if(value == "true"){
+				//do nothing
+			}else {
+				// and it hasn't been closed in last 24h
+				// then open it after 30s delay
+				setTimeout(function(){
+					$popupWraper.show()
+				 }, 30000);
+			}
+		}
+	}
+
+	//popup newsletter
+	$('#popup .close').click(function(){
+	  var date = new Date();
+	  date.setTime(date.getTime()+(24*60*60*1000));
+	  var expires = "expires="+date.toGMTString();
+	  document.cookie = 'popup_newsletter=true; ' + expires + ';domain='+ document.location.hostname +';path=/blog';
+
+	  $("#popup-wrapper").hide();
+	});
+
+	// // total like count code
+	// $('#main.singlePost').each(function(){
+	// 	var facebookURL = "https://graph.facebook.com/fql?q=SELECT url, normalized_url, share_count, like_count, comment_count, total_count,commentsbox_count, comments_fbid, click_count FROM link_stat WHERE url='";
+	// 	var twitterURL = "https://cdn.api.twitter.com/1/urls/count.json?url=";
+	// 	// twitter endpoint no longer works :(
+	// 	// let us try with replacement bellow
+	// 	// var twitterURL = "https://opensharecount.com/count.json?url=";
+	// 	var bufferappURL = "https://api.bufferapp.com/1/links/shares.json?url=";
+	// 	var linkedInURL = "https://www.linkedin.com/countserv/count/share?url="
+
+	// 		$.getJSON(gPlusoneCheckerURL + theURL, function(data){
+	// 			gplusone = data;
+	// 			// console.log("gplusone", data);
+	// 			checkCounters();
+	// 		});
+
+	//    $.getJSON( facebookURL + theURL + "'", function(data){
+	//       console.log("faceshit_counter", data.data[0].total_count);
+	//       fblikes = data.data[0].total_count;
+	//       checkCounters();
+	//     });
+
+ //      $.getJSON(twitterURL + theURL + '&callback=?', function(data){
+ //      	tweets = data.count;
+ //      	console.log("twitter", tweets);
+ //      	checkCounters();
+ //      });
+
+ //    	$.getJSON(bufferappURL + theURL + "&callback=?", function(data){
+ //    		buffers = data.shares;
+ //    		console.log("bufferapp", buffers);
+ //    		checkCounters();
+ //    	});
+
+ //    	$.getJSON(linkedInURL + theURL + "&format=jsonp&callback=?", function(data){
+ //    		linkedin = data.count;
+ //    		console.log("linkedInURL", linkedin);
+ //    		checkCounters();
+ //    	});
+
+	// });
+
+	//newsletter signup form
+	jQuery('form.newsletter-form').submit(function(event) {
+	  var form = jQuery(this);
+	  var fieldWrap =  jQuery('.field-wrap', this);
+	  var emailField =  jQuery('.newsletter-ajax-email', this);
+	  var submitWrap =  jQuery('.submitWrap', this);
+	  var emailFieldVal = emailField.val();
+	  var actionURL = form.attr("action");
+	  var reg = /(.+)@(.+){2,}\.(.+){2,}/;
+
+	  if (reg.test(emailFieldVal)) {
+	    jQuery('.newsletterAjaxFailed', this).hide();
+	    emailField.removeClass("error");
+
+	    // MQC: defaults bellow are for appcase
+	    var zeeDataType ="json";
+	    var zeeData = {"email": emailFieldVal };
+	    var zeeResult = "status";
+	    var zeeMessage = "message";
+	    var zeeOk = "ok";
+
+	    event.preventDefault();
+	    jQuery.ajax({
+	      type: 'POST',
+	        url: actionURL,
+	        data: zeeData,
+	        dataType: zeeDataType,
+	        beforeSend: function(data){
+	          jQuery('.newsletterAjaxLoading', form).show();
+	        },
+	        success: function(data){
+	          jQuery('.newsletterAjaxLoading', form).hide();
+            jQuery('.newsletterAjaxFailed', form).hide();
+
+	          fieldWrap.addClass("success");
+
+	          // Google Analytics Conversion Goal
+	          ga('send', 'event', 'newsletter', 'signup', 'newsletter_blog');
+
+	          jQuery('.newsletterAjaxSuccess', form).html("Thanks for signing up! Please check your inbox and confirm the subscription.").show();
+	        },
+	        error: function(data){
+	          jQuery('.newsletterAjaxLoading', form).hide();
+            jQuery('.newsletterAjaxSuccess', form).hide();
+	          jQuery('.newsletterAjaxFailed', form).html(data.responseText).show();
+	          emailField.addClass("error");
+	        }
+	    });
+	  } // valid email
+	  else {
+	      event.preventDefault();
+	      jQuery('.newsletterAjaxFailed', form).text("Please provide a valid email.").show();
+	      emailField.addClass("error");
+	  }
+	});
+
+	// comments form validation
+	jQuery('form#commentform').submit(function(event) {
+		var emailOk = false;
+		var authorOk = false;
+		var commentOk  = false;
+		var $form = jQuery('form#commentform');
+		var $emailField =  jQuery('input#email');
+		var $authorField = jQuery('input#author');
+		var $textAreaEl = jQuery('textarea#comment');
+		var actionURL = $form.attr("action");
+		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+		if($emailField.length){
+			// guest user
+			var emailFieldVal = $emailField.val();
+			if (reg.test(emailFieldVal)) {
+				emailOk = true;
+				$emailField.removeClass("invalid");
+			}
+			else {
+				emailOk = false;
+				$emailField.addClass("invalid");
+			}
+		}else {
+			// loged in user
+			emailOk = true;
+		}
+
+		if($emailField.length){
+			// guest user
+			var authorFieldVal = $authorField.val();
+			if(authorFieldVal.length >=3 ) {
+				authorOk = true;
+				$authorField.removeClass("invalid");
+			}
+			else {
+				authorOk = false;
+				$authorField.addClass("invalid");
+			}
+		}else{
+			// loged in user
+			authorOk = true;
+		}
+
+		var textAreaVal = $textAreaEl.val();
+		if (textAreaVal.length > 0) {
+			commentOk = true;
+			$textAreaEl.removeClass("invalid");
+		}
+		else {
+			commentOk = false;
+			$textAreaEl.addClass("invalid");
+		}
+
+		// console.log("commentOk", commentOk, "authorOk", authorOk , "emailOk", emailOk);
+		if (commentOk == true && authorOk == true && emailOk == true ){
+			return true;
+		} else {
+			event.preventDefault();
+		}
+	});
+
+
+	// open custom shares links in centered popup
+	$('a.customShare').click(function(){
+		event.preventDefault();
+		var theURLtoOpen =$(this).attr("href");
+		var width = $(this).attr("data-width");
+		var height = $(this).attr("data-height");
+		var title = $(this).attr("data-title");
+
+		// Fixes dual-screen position
+		var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+		var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+		windowW = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+		windowH = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+		var left = ((windowW / 2) - (width / 2)) + dualScreenLeft;
+		var top = ((windowH / 2) - (height / 2)) + dualScreenTop;
+
+		var targetWin = window.open (theURLtoOpen, title, 'toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+
+		// Puts focus on the newWindow
+		if (window.focus) {
+		    targetWin.focus();
+		}
+
+  	// Send GA event
+		ga('send', 'event', 'social_share', 'share', 'social_share');
+
+	});
+
+	$(".ts-fab-content a").attr( "target", "_blank" );
+
+
+	// show/hide custom shares in post footer
+	$(".article-footer " ).hover(
+	  function() {
+	    $( this ).find("div.default").stop( true, false ).hide(100);
+	    $( this ).find("div.visibleOnHover").stop( true, false ).show(100);
+	  }, function() {
+	  	$( this ).find("div.visibleOnHover").stop( true, false ).hide(100);
+	    $( this ).find("div.default").stop( true, false ).show(100);
+	  }
+	);
+
+
+}); /* end of as page load scripts */
+
+
+/*! A fix for the iOS orientationchange zoom bug.
+ Script by @scottjehl, rebound by @wilto.
+ MIT License.
+*/
+(function(w){
+	// This fix addresses an iOS bug, so return early if the UA claims it's something else.
+	if( !( /iPhone|iPad|iPod/.test( navigator.platform ) && navigator.userAgent.indexOf( "AppleWebKit" ) > -1 ) ){ return; }
+	var doc = w.document;
+	if( !doc.querySelector ){ return; }
+	var meta = doc.querySelector( "meta[name=viewport]" ),
+		initialContent = meta && meta.getAttribute( "content" ),
+		disabledZoom = initialContent + ",maximum-scale=1",
+		enabledZoom = initialContent + ",maximum-scale=10",
+		enabled = true,
+		x, y, z, aig;
+	if( !meta ){ return; }
+	function restoreZoom(){
+		meta.setAttribute( "content", enabledZoom );
+		enabled = true; }
+	function disableZoom(){
+		meta.setAttribute( "content", disabledZoom );
+		enabled = false; }
+	function checkTilt( e ){
+		aig = e.accelerationIncludingGravity;
+		x = Math.abs( aig.x );
+		y = Math.abs( aig.y );
+		z = Math.abs( aig.z );
+		// If portrait orientation and in one of the danger zones
+		if( !w.orientation && ( x > 7 || ( ( z > 6 && y < 8 || z < 8 && y > 6 ) && x > 5 ) ) ){
+			if( enabled ){ disableZoom(); } }
+		else if( !enabled ){ restoreZoom(); } }
+	w.addEventListener( "orientationchange", restoreZoom, false );
+	w.addEventListener( "devicemotion", checkTilt, false );
+})( this );

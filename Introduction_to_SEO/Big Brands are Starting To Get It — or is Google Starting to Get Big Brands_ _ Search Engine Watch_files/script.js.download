@@ -1,0 +1,62 @@
+jQuery(function() {
+	
+	jQuery('#view-social-networks').click(function(e) {
+		cnt_select_tab('social-networks');
+		e.preventDefault();
+	});	
+	
+	jQuery('#cnt-tabs').tabs({
+		create: function( event, ui ) {
+			jQuery(this).show();
+		},		
+		activate: function( event, ui ) {
+			jQuery('#cnt-tabs .prev-tab').removeClass('prev-tab');
+			ui.newTab.prev().addClass('prev-tab');
+		}
+
+	});
+	
+	jQuery('.cnt-pagelinks').each(function() {
+			tab_name = this.id.split('cnt-pagelinks-')[1];				
+			jQuery(this).find('a').each(function() {		
+				url_args = 'cnt_tab=' +tab_name;
+				
+				if (this.href.indexOf('cnt_tab') > -1) {
+					this.href = this.href.replace(/cnt_tab=[^&]*/i, url_args);
+				}
+				else if (this.href.indexOf('?') === -1) {
+					this.href += '?' + url_args;
+				}
+				else {
+					this.href += '&' + url_args;
+				}
+			});
+	})
+
+
+	//marketplace search form
+	jQuery('#marketplace-search-form').submit(function(){
+		this.action = jQuery('#marketplace-search-category-filter').val();
+	});
+
+});
+
+
+
+//select tab
+function cnt_select_tab(tab_name)
+{	
+	var index = jQuery('#cnt-tabs ul li').index(jQuery('#cnt-tab-'+tab_name));
+	jQuery('#cnt-tabs').tabs("option", "active", index);
+}
+
+//return object with properties created from url arguments
+function cnt_getUrlVars(link) {	
+    var vars = {};
+    var parts = link.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+

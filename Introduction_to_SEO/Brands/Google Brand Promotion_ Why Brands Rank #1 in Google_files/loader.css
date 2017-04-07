@@ -1,0 +1,11 @@
+/* CSS Loader */
+
+@import "core.css";
+@import "main.css";
+@import "forms.css";
+@import "home.css";
+@import "login.css";
+@import "blog.css";
+@import "training.css";
+@import "tools.css";
+@import "popups.css";

@@ -1,0 +1,15 @@
+.company-dashboard .related-content-tab
+{
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.company-dashboard .related-content
+{
+	display: none;
+}
+
+.company-dashboard-sidebar
+{
+	min-height: 400px;
+}
