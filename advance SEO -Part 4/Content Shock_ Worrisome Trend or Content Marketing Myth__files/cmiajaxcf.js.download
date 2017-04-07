@@ -1,0 +1,15 @@
+		function submit_me(){
+		var thename = jQuery("input#name").val();
+		jQuery.post(the_ajax_script.ajaxurl, jQuery("#cmisec_ajaxForm").serialize(),function(response_from_the_action_function){
+			jQuery("#cmisec_response").html(response_from_the_action_function).css({"color":"green"});
+			jQuery("#cmisec_ajaxForm").hide();
+			jQuery("#skip_button").hide();
+		}
+		);
+		}
+		jQuery(document).ready(function() {
+		jQuery('#ajaxForm input[type=text]').click(function() {
+		if(this.value==this.defaultValue)
+		jQuery(this).val("");					
+		});
+		});

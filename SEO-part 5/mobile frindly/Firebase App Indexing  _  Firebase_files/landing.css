@@ -1,0 +1,1681 @@
+/* GMP Icons */
+
+@font-face {
+  font-family: 'GMP Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//www.gstatic.com/mobilesdk/170215_mobilesdk/GMPIcons.eot');
+  src: local('GMP Icons'),
+    url('//www.gstatic.com/mobilesdk/170215_mobilesdk/GMPIcons.eot')
+    format("embedded-opentype"),
+    url('//www.gstatic.com/mobilesdk/170215_mobilesdk/GMPIcons.woff2')
+    format("woff2"),
+    url('//www.gstatic.com/mobilesdk/170215_mobilesdk/GMPIcons.ttf')
+    format("truetype");
+}
+
+.gmp-icons {
+  direction: ltr;
+  display: inline-block;
+  font-family: 'GMP Icons';
+  font-feature-settings: 'liga'; /* Support for IE. */
+  font-size: 24px;
+  -webkit-font-smoothing: antialiased; /* Support for all WebKit browsers. */
+  font-style: normal;
+  font-weight: normal;
+  height: 1em;
+  letter-spacing: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale; /* Support for Firefox. */
+  speak: none;
+  text-decoration: none;
+  text-rendering: optimizeLegibility; /* Support for Safari and Chrome. */
+  text-transform: none;
+  white-space: nowrap;
+  width: 1em;
+  word-wrap: normal;
+}
+
+a.firebase-external-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a.firebase-external-link:after {
+  content: "open_in_new";
+  font-family: Material Icons;
+  font-size: 20px;
+  margin-left: 4px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.gmp-icons-container .material-icons:not(.default-icons) {
+  font-family: 'GMP Icons';
+}
+
+.gmp-platform-icons {
+  font-size: 32px;
+  height: 32px;
+  vertical-align: bottom;
+  width: 32px;
+  margin: 0 4px;
+}
+
+/* Don't add unnecessary margins on either end */
+.gmp-platform-icons:first-child {
+  margin-left: 0;
+}
+
+.gmp-platform-icons:last-child {
+  margin-right: 0;
+}
+
+/* Andorid + iOS icons have space on both sides, so they don't need margins */
+.gmp-platform-icons.gmp-icon-android,
+.gmp-platform-icons.gmp-icon-ios {
+  margin: 0;
+}
+
+/* Add space before icons when inline with titles */
+.firebase-docs-overview .gmp-icons-container .gmp-platform-icons:first-of-type {
+  margin-left: 8px;
+}
+
+.gmp-icons-container.gmp-icons-container-grayscale .gmp-platform-icons {
+  color: #90A4AE;
+}
+
+.gmp-icon-android {
+  color: #00bfa5;
+}
+
+.gmp-icon-ios {
+  color: #16aaca;
+}
+
+.gmp-icon-web {
+  color: #c52062;
+}
+
+.gmp-icon-cpp {
+  color: #fd8c09;
+}
+
+.gmp-icon-unity {
+  color: #aa4cba;
+}
+
+/* Other */
+.firebase-homepage .devsite-main-content {
+  margin-top: 0;
+  padding: 0 160px;
+}
+
+.firebase-homepage .devsite-banner,
+.firebase-features-page .devsite-banner {
+  margin-bottom: 0;
+}
+
+.firebase-homepage-heading {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 52px;
+  margin: 0;
+  padding-top: 88px;
+}
+
+.firebase-homepage-sub-heading {
+  color: #fff;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 16px 0 32px;
+  max-width: 440px;
+}
+
+.firebase-homepage-header-button {
+  display: inline;
+  margin-right: 16px;
+}
+
+.firebase-homepage-header-link {
+  display: block;
+  color: white;
+  font-size: 14px;
+  padding-bottom: 16px;
+  text-decoration: underline;
+}
+
+.firebase-homepage-heading-footer {
+  color: white;
+  display: block;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.firebase-homepage-heading-footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.firebase-landing-row-grey {
+  background-color: #f7f7f7;
+}
+
+.firebase-homepage .devsite-landing-row-item-buttons {
+  margin-top: 24px;
+}
+
+.firebase-homepage .devsite-landing-row-item-image,
+.firebase-features-page .devsite-landing-row-item-image {
+  background-color: transparent;
+}
+
+.firebase-homepage .devsite-landing-row,
+.firebase-features-page .devsite-landing-row {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.firebase-homepage .devsite-landing-row:first-of-type,
+.firebase-features-page .devsite-landing-row:first-of-type {
+  padding-top: 24px;
+}
+
+.firebase-homepage .devsite-landing-row h2,
+.firebase-features-page .devsite-landing-row h2 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-image,
+.firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-code {
+  margin: 0 0 0 80px;
+  width: calc((100% - 120px) * 2 / 3);
+}
+
+.firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-image-left {
+  margin: 0 80px 0 0;
+}
+
+.firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-description {
+  width: calc((100%) / 3);
+}
+
+.firebase-homepage-header-row {
+  background: url(/images/landing-hero-welcome.png) no-repeat 328px 0;
+  background-size: auto 100%;
+  min-height: 368px;
+  max-width: 1592px;
+  padding: 0 160px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.3),
+       screen and (min-resolution: 120dpi) {
+  .firebase-homepage-header-row {
+    background-image: url(/images/landing-hero-welcome-2x.png);
+  }
+}
+
+.firebase-homepage-header-row .devsite-product-button-row {
+  margin: 0;
+  padding-bottom: 16px;
+  text-align: left;
+}
+
+.firebase-homepage .ui-datasection-main {
+  margin: 8px 0;
+}
+
+.firebase-homepage-platforms-wrapper {
+  list-style-type: none;
+  margin-top: 16px;
+  padding-left: 0;
+}
+
+.firebase-platform-promo-row img.devsite-landing-row-item-image {
+  max-width: 180px; /** Set firebase logo max-width to keep layout contained */
+}
+
+.firebase-homepage-platforms-wrapper li a {
+  vertical-align: top;
+}
+
+.firebase-homepage-platform-icon-container {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.firebase-homepage-platform-icon-container .gmp-icons {
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 24px;
+  height: 36px;
+  line-height: 36px;
+  margin: 0 8px 0 0;
+  text-align: center;
+  width: 36px;
+}
+
+.platform-icon-android {
+  background: #00bfa5;
+}
+
+.platform-icon-ios {
+  background: #16aaca;
+}
+
+.platform-icon-web {
+  background: #c52062;
+}
+
+.devsite-landing-row-cta h3 {
+  font-weight: 300;
+}
+
+.devsite-landing-row h2 {
+  color: #212121;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0 0 20px;
+}
+
+.devsite-article-inner h2 {
+  clear: both;
+}
+
+.firebase-gcp-banner {
+  background-color: #F4F6F7;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.firebase-gcp-banner img {
+  float: right;
+  margin-left: 40px;
+  position: relative;
+  top: 16px;
+}
+
+.firebase-gcp-banner .devsite-landing-row-item-description {
+  width: 100% !important;
+}
+
+.firebase-gcp-banner h3 {
+  color: #424242;
+  font-family: Roboto-Medium, sans-serif;
+  font-weight: 500;
+}
+
+.firebase-gcp-banner span {
+  color: #617D8A;
+  margin-right: 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.firebase-hp-row-forgetinfra,
+.firebase-hp-row-scale {
+  background: #ebeff2;
+}
+
+.firebase-hp-row-forgetinfra .button:hover,
+.firebase-hp-row-forgetinfra .button:focus,
+.firebase-hp-row-scale .button:hover,
+.firebase-hp-row-scale .button:focus {
+  background-color: rgba(3, 155, 229, .12);
+}
+
+.firebase-hp-row-forgetinfra .button:active,
+.firebase-hp-row-scale .button:active {
+  background-color: rgba(3, 155, 229, .24);
+}
+
+.firebase-hp-row-datadriven {
+  background: #2d384a;
+  color: rgba(255, 255, 255, .7);
+}
+
+.firebase-hp-row-support {
+  background: #0288D1;
+  color: rgba(255, 255, 255, .8); /* optimization from UX on legibility */
+}
+
+.firebase-hp-row-datadriven .button,
+.firebase-hp-row-support .button,
+.firebase-homepage-header-row .button-white {
+  color: #fff;
+}
+
+.firebase-hp-row-datadriven .button:hover,
+.firebase-hp-row-datadriven .button:focus,
+.firebase-hp-row-support .button:hover,
+.firebase-hp-row-support .button:focus,
+.firebase-homepage-header-row .button-white:hover,
+.firebase-homepage-header-row .button-white:focus {
+  background-color: rgba(255, 255, 255, .12);
+}
+
+.firebase-hp-row-datadriven .button:active,
+.firebase-hp-row-support .button:active {
+  background-color: rgba(255, 255, 255, .24);
+}
+
+.firebase-hp-row-datadriven h2,
+.firebase-hp-row-support h2 {
+  color: #fff;
+}
+
+.firebase-hp-platforms .devsite-landing-row-item,
+.devsite-landing-row-light-grey {
+  background: #fbfbfc;
+}
+
+.devsite-landing-row-item-icon-container {
+  background: #78909c;
+  height: 48px;
+  margin-top: 8px;
+  width: 48px;
+}
+
+.devsite-landing-row-logos-heading {
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.firebase-homepage .devsite-landing-row-logos {
+  padding: 80px 10000px;
+}
+
+.devsite-landing-row-logos-heading + .devsite-landing-row-logos {
+  margin-top: 0;
+  padding-top: 40px;
+}
+
+.devsite-landing-row-logos-heading h2,
+.devsite-landing-row-logos-heading p {
+  color: #757575;
+}
+
+.devsite-landing-row-logos-heading h2 {
+  margin-bottom: 12px;
+}
+
+.devsite-landing-row-logos-heading p {
+  margin-top: 0;
+}
+
+.devsite-landing-row-logos-heading > .devsite-landing-row-item .devsite-landing-row-item-description {
+  width: 100%;
+}
+
+.devsite-landing-row-logos .devsite-landing-row-item-custom-image-icon {
+  font-size: 160px;
+  width: 160px;
+}
+
+.devsite-landing-row-logos .devsite-landing-row-item {
+  vertical-align: middle;
+}
+
+.firebase-hp-platforms .devsite-landing-row-item-icon-container {
+  margin-left: 16px;
+}
+
+/* Set color for the large circle-icons, like those on top of /docs/.
+ * 
+ * We need to do this beacuse it's the only way to apply item-level styles 
+ * because item-level "classname" attribute is not supported.
+ *
+ * Feature request: b/36006775
+ */
+.firebase-hp-platforms-apps .devsite-landing-row-item:nth-of-type(1) .devsite-landing-row-item-icon-container,
+.firebase-hp-platforms .docs-landing-row-item .docs-ios {
+  background: #16aaca;
+}
+
+.firebase-hp-platforms-apps .devsite-landing-row-item:nth-of-type(2) .devsite-landing-row-item-icon-container,
+.firebase-hp-platforms .docs-landing-row-item .docs-android {
+  background: #00bfa5;
+}
+
+.firebase-hp-platforms-apps .devsite-landing-row-item:nth-of-type(3) .devsite-landing-row-item-icon-container,
+.firebase-hp-platforms .docs-landing-row-item .docs-web {
+  background: #c52062;
+}
+
+.firebase-hp-platforms-games .devsite-landing-row-item:nth-of-type(1) .devsite-landing-row-item-icon-container,
+.firebase-hp-platforms .docs-landing-row-item .docs-cpp {
+  background: #fd8c09;
+}
+
+.firebase-hp-platforms-games .devsite-landing-row-item:nth-of-type(2) .devsite-landing-row-item-icon-container,
+.firebase-hp-platforms .docs-landing-row-item .docs-unity {
+  background: #aa4cba;
+}
+
+.docs-android,
+.docs-ios,
+.docs-web,
+.docs-cpp,
+.docs-unity {
+  height: 64px;
+  width: 64px;
+  margin: 10px 16px 0 -16px;
+}
+
+.devsite-landing-row-item-icon-white {
+  font-size: 32px;
+  height: 32px;
+  margin: 8px;
+  width: 32px;
+}
+
+.firebase-docs-overview .devsite-landing-row h2 {
+  margin: 80px 0 -40px;
+}
+
+.firebase-hp-platforms h3 {
+  background: #f3f5f6;
+  padding: 16px;
+  font-size: 18px;
+  margin-left: -76px;
+  padding-left: 76px;
+}
+
+.firebase-hp-platforms ul {
+  list-style: none;
+  padding: 0;
+}
+
+.firebase-hp-rowgroup {
+  color: #757575;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Docs Overview page styles */
+
+.devsite-landing-row-3-up .docs-landing-row-item {
+    width: calc((100% - 80px)/2);
+    display: inline-block;
+}
+
+.docs-landing-icon {
+  font-size: 42px;
+  height: 42px;
+  margin: 11px;
+  width: 42px;
+}
+
+.firebase-hp-platforms h3.docs {
+  background: transparent;
+  border-bottom: 0;
+  padding: 25px 16px 0 0;
+  font-size: 18px;
+  margin-left: -76px;
+}
+
+/* end Docs Overview page styles */
+
+
+
+.pillar-start {
+  margin-top: 40px;
+}
+
+.pillar-start h3 {
+  color: #212121;
+  font-weight: 400;
+}
+
+.firebase-docs-overview .devsite-landing-row-item-description h3 a {
+  color: #212121;
+}
+
+.firebase-docs-overview .devsite-landing-row-item-description h3 a:hover {
+  color: #039be5;
+}
+
+.firebase-hp-rowgroup .devsite-landing-row-item-icon-description {
+  margin-left: 72px;
+  margin-top: 16px;
+}
+
+.firebase-hp-rowgroup .devsite-landing-row-item-icon-description h3 {
+  font-size: 18px;
+}
+
+.firebase-hp-platform ul {
+  list-style-type: none;
+}
+
+.material-icons-container .devsite-landing-row-item-icon-container .material-icons {
+  font-family: "Material Icons";
+}
+
+.firebase-features-page .firebase-beta-tag {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  line-height: 20px;
+  margin-left: 8px;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.firebase-features-page .devsite-landing-row {
+  position: relative;
+}
+
+.firebase-features-page .devsite-landing-row-item-icon-container {
+  height: 36px;
+  margin-right: 16px;
+  margin-top: 0;
+  width: 36px;
+}
+
+.firebase-features-page .devsite-landing-row-item-icon-white {
+  font-size: 24px;
+  height: 24px;
+  margin: 6px;
+  width: 24px;
+}
+
+.firebase-features-intro-paragraph {
+  color: #757575;
+  margin-bottom: 8px;
+}
+
+.firebase-feature-popup-content {
+  font-size: 14px;
+}
+
+.firebase-feature:not(.firebase-feature-analytics) .firebase-feature-popup-content {
+  background: white;
+  color: #212121;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+  padding: 20px 32px;
+  position: absolute;
+  top: 20px;
+  width: 360px;
+  z-index: 1;
+}
+
+.firebase-feature-popup-content h3 {
+  margin-top: 0;
+}
+
+.firebase-feature-popup-content p {
+  margin: 8px 0;
+}
+
+.firebase-feature-popup-content ul {
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+
+.firebase-feature {
+  font-size: 16px;
+  margin: 16px 0;
+  position: static;
+}
+
+.firebase-feature:not(.firebase-feature-analytics) {
+  margin: 4px 0 4px 40px;
+}
+
+.firebase-feature .firebase-feature-main-heading {
+  display: inline-block;
+  color: #039be5;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.firebase-feature .firebase-feature-main-heading:hover {
+  cursor: pointer;
+}
+
+.firebase-feature .firebase-feature-main-heading.selected-feature::before,
+.firebase-feature .firebase-feature-main-heading:hover::before,
+.firebase-feature .firebase-feature-main-heading::before,
+.firebase-support .expand-control::after,
+.goog-custom-button-inner-box span,
+.google-visualization-table-sortind::after,
+.firebase-support-form .page-title-visible::before,
+.firebase-support-faq .page-title-visible::before,
+.firebase-support-faq .expand-control::after,
+.firebase-case-studies .expand-control::after {
+  font: normal normal normal 24px/1 'Material Icons';
+  font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-wrap: normal;
+}
+
+.firebase-feature .firebase-feature-main-heading.selected-feature::before,
+.firebase-feature .firebase-feature-main-heading::before {
+  content: 'arrow_forward';
+  display: inline-block;
+  height: 24px;
+  left: -40px;
+  position: absolute;
+  width: 24px;
+}
+
+.firebase-feature .firebase-feature-main-heading.selected-feature::before {
+  opacity: 1;
+}
+
+.firebase-feature .firebase-feature-main-heading::before {
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.firebase-feature .firebase-feature-main-heading:hover::before {
+  opacity: 1;
+}
+
+.firebase-feature-subheading {
+  color: #757575;
+  font-size: 14px;
+  margin: 0;
+}
+
+.firebase-features-row-analytics h2 {
+  display: inline-block;
+  line-height: 36px;
+  margin: 0;
+  width: calc(100% - 52px);
+}
+
+.firebase-landing-row-darkblue {
+  background-color: #2c384b;
+  color: rgba(255, 255, 255, .87);
+}
+
+.firebase-hack-custom-logos-fix-h2 h2 {
+  color: #757575 !important;
+  font-size: 24px !important;
+  letter-spacing: -.01em !important;
+  line-height: 64px !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.firebase-analytics-partners .devsite-landing-row-logos {
+  margin-bottom: 64px;
+}
+
+.firebase-bold-link {
+  font-weight: 500;
+}
+
+.firebase-features-page .firebase-customers-row {
+  padding-bottom: 32px !important;
+}
+
+.firebase-features-page .firebase-homepage-sub-heading {
+  max-width: 80%;
+}
+
+.firebase-landing-row-darkblue h3 {
+  color: white !important;
+}
+
+.firebase-landing-row-dense {
+  padding-bottom: 0px !important;
+}
+
+.firebase-landing-row-dense.devsite-landing-row-colored {
+  margin-top: 0 !important;
+}
+
+.firebase-features-row-analytics .devsite-landing-row-item-icon-container {
+  display: inline-block;
+}
+
+.firebase-features-row-analytics .showalways {
+  display: none;
+}
+
+.firebase-features-row-grow {
+  background: #ebeff2;
+}
+
+.firebase-features-row-develop .devsite-landing-row-item-description h2 {
+  color: #fff;
+}
+
+.firebase-features-row-develop {
+  background: #2d384a;
+}
+
+.firebase-features-row-develop .devsite-landing-row-item-description,
+.firebase-features-row-develop .devsite-landing-row-item-description .firebase-features-intro-paragraph,
+.firebase-features-row-develop .devsite-landing-row-item-description .firebase-feature-subheading {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.firebase-features-row-develop .firebase-feature .firebase-feature-main-heading {
+  color: #29B6F6;
+}
+
+.firebase-feature:not(.exw-expanded-content) .firebase-feature-popup-content:not(.exw-expanded-content) {
+  display: none;
+}
+
+.firebase-feature-analytics-desktop:not(.exw-expanded-content) .firebase-feature-popup-content:not(.exw-expanded-content) {
+  display: block;
+}
+
+.firebase-feature .exw-control {
+  display: none;
+}
+
+
+.firebase-feature .exw-control::before,
+.firebase-support-faq .expand-control::after {
+  color: #bdbdbd;
+}
+
+.firebase-feature .exw-control+h3.showalways,
+.firebase-feature .exw-control+h4.showalways {
+  margin: 16px 0 0;
+  overflow: visible;
+  position: relative;
+}
+
+.firebase-feature .exw-control+.showalways {
+  padding-left: 0;
+}
+
+.feature-intro-title {}
+.feature-intro-title .devsite-page-title {
+  display: inline-block;
+}
+
+.feature-intro-title .devsite-page-title-with-icons .heading-text {
+  margin-right: 24px;
+}
+
+.feature-intro-title .gmp-icons-container {
+  border-left: 1px solid #e7ebed;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 30px;
+  padding-left: 24px;
+}
+
+.feature-intro-title .gmp-icons-container span:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.feature-intro .tagline {
+  margin-bottom: 48px;
+}
+
+.implementation-path tr td:first-of-type {
+  background: rgba(255,255,255,.95) !important;
+  max-width: 48px;
+  vertical-align: middle;
+}
+
+.key-functions tr td:first-of-type,
+.implementation-path tr td:nth-of-type(2) {
+  background: rgba(255,255,255,.95) !important;
+  color: #212121;
+  font: 14px/24px Roboto-Medium, sans-serif;
+  min-width: 200px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.implementation-path tr td,
+.key-functions tr td {
+  color: rgba(0, 0, 0, 0.54);
+  font: 14px/24px Roboto-Regular, sans-serif;
+  padding: 32px;
+}
+
+.implementation-path tr,
+.key-functions tr {
+  border-top: 1px solid #cfd8dc;
+}
+
+.implementation-path .numbered:before {
+  background: #BDBDBD;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-right: 20px;
+  text-align: center;
+  width: 36px;
+}
+
+.implementation-path .numbered.n1:before {
+  content:'1';
+}
+
+.implementation-path .numbered.n2:before {
+  content:'2';
+}
+
+.implementation-path .numbered.n3:before {
+  content:'3';
+}
+
+.implementation-path .numbered.n4:before {
+  content:'4';
+}
+
+.implementation-path .numbered.n5:before {
+  content:'5';
+}
+
+.implementation-path .numbered.n6:before {
+  content:'6';
+}
+
+.implementation-path .numbered.n7:before {
+  content:'7';
+}
+
+.implementation-path .numbered.n8:before {
+  content:'8';
+}
+
+.implementation-path .numbered.n9:before {
+  content:'9';
+}
+
+.firebase-support .devsite-landing-row-item-icon-container {
+  height: 36px;
+  margin-top: 16px;
+  width: 36px;
+}
+
+.firebase-support .devsite-landing-row-item-icon-white {
+  font-size: 24px;
+  height: 24px;
+  margin: 6px;
+  width: 24px;
+}
+
+.firebase-support :link > .devsite-landing-row-item-icon-container:hover {
+  box-shadow: none;
+}
+
+.stack-overflow .devsite-landing-row-item-icon-container {
+  background: #fda639;
+}
+
+.stack-overflow .devsite-landing-row-item-icon-white {
+  background: url(../images/logo-stack-overflow-white.svg) no-repeat;
+  background-size: 22px 22px;
+}
+
+.slack-channel .devsite-landing-row-item-icon-container {
+  background: #74d5b6;
+}
+
+.slack-channel .devsite-landing-row-item-icon-white {
+  background: url(../images/logo-slack-white.svg) no-repeat;
+  background-size: 44px 44px;
+  height: 32px;
+  width: 32px;
+  margin: -4px;
+}
+
+.google-groups .devsite-landing-row-item-icon-container {
+  background: #9dcb6b;
+}
+
+.technical-support .devsite-landing-row-item-icon-container {
+  background: #6199f3;
+}
+
+.bug-report .devsite-landing-row-item-icon-container {
+  background: #e9437b;
+}
+
+.account-services .devsite-landing-row-item-icon-container {
+  background: #2fa69a;
+}
+
+.faq .devsite-landing-row-item-icon-container {
+  background: #aa4cba;
+}
+
+.release-notes .devsite-landing-row-item-icon-container {
+  background: #34c6d8;
+}
+
+.firebase-support .firebase-hp-rowgroup {
+  padding-top: 32px;
+}
+
+.firebase-support .pillar-start + .firebase-hp-rowgroup {
+  padding-top: 0;
+}
+
+.firebase-support .devsite-landing-row-item-icon-description {
+  margin-left: 52px;
+}
+
+.firebase-support h3 {
+  margin-bottom: 8px;
+}
+
+.devsite-landing-page .devsite-article .open-in-new {
+  font-size: 18px;
+  height: 18px;
+  margin-left: 8px;
+  width: 18px;
+  vertical-align: middle;
+}
+
+.firebase-support .expand-control,
+.firebase-support .expand-control:hover {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  width: 80px;
+}
+
+.firebase-support .expand-control::after,
+.firebase-case-studies .expand-control::after {
+  content: 'expand_more';
+  height: 24px;
+  position: relative;
+  right: -8px;
+  top: 6px;
+  width: 24px;
+}
+
+.firebase-support .expand-control.exw-expanded::after,
+.firebase-case-studies .expand-control.exw-expanded::after{
+  content: 'expand_less';
+}
+
+.firebase-support-table-row.devsite-landing-row-1-up > .devsite-landing-row-item-no-image > .devsite-landing-row-item-description {
+  position: relative;
+  width: 100%;
+}
+
+.firebase-support-table-wrapper.expandable {
+  position: static;
+}
+
+.firebase-support-table-row h3 {
+  margin-right: 96px;
+}
+
+.firebase-support-table-row p {
+  margin: 0 96px 0 0;
+}
+
+.devsite-charts-table {
+  margin-top: 40px;
+}
+
+.devsite-charts-table-header-row {
+  background: #f7f7f7;
+  border-top: 0;
+}
+
+.google-visualization-table {
+  border-radius: 2px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .26);
+}
+
+table.google-visualization-table-table {
+  margin: 0;
+}
+
+table.google-visualization-table-table th,
+table.google-visualization-table-table .devsite-charts-table-row td {
+  color: #757575;
+  font-size: 12px;
+}
+
+.google-visualization-table-table tr:last-of-type {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.google-visualization-table-div-page {
+  float: right;
+  margin-right: 16px;
+  padding: 12px 0 8px;
+  width: 64px;
+}
+
+.goog-custom-button {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.goog-custom-button-inner-box span {
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.google-visualization-table-page-prev::after {
+  content: 'navigate_before';
+}
+
+.google-visualization-table-page-next::after {
+  content: 'navigate_next';
+}
+
+.goog-custom-button-disabled span::after {
+  color: #ccc;
+  cursor: auto;
+}
+
+.goog-custom-button-collapse-right {
+  margin-right: 16px;
+}
+
+.google-visualization-table-sortind {
+  position: relative;
+}
+
+.google-visualization-table-sortind::after {
+  content: 'arrow_downward';
+  font-size: 16px;
+  position: absolute;
+  right: -20px;
+  top: -2px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+}
+
+.sort-ascending .google-visualization-table-sortind::after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.sort-descending span.google-visualization-table-sortind,
+.sort-ascending span.google-visualization-table-sortind {
+  border: none;
+}
+
+.unsorted .google-visualization-table-sortind {
+  display: none;
+}
+
+.google-visualization-table-page-numbers {
+  display: none;
+}
+
+.firebase-filterable-table .google-visualization-table {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.firebase-support-table-wrapper  .google-visualization-table {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+  border-radius: 2px;
+}
+
+.firebase-filterable-table .devsite-charts-table-header-row {
+  background: rgba(236, 239, 241, .54);
+}
+
+.firebase-filterable-table table.google-visualization-table-table .google-visualization-table-th {
+  height: auto;
+  padding: 8px 18px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  background: #f7f7f7;
+}
+
+.firebase-support-form .devsite-wrapper {
+  background: rgba(236, 239, 241, .54);
+}
+
+.firebase-support-form #devsite-support-form {
+  background: #fff;
+  padding: 42px 64px;
+}
+
+.firebase-support-form .devsite-page-title {
+  display: none;
+}
+
+.firebase-support-form .page-title-visible,
+.firebase-analytics-partners .page-title-visible,
+.firebase-support-faq .page-title-visible {
+  font-size: 24px;
+  font-weight: 400;
+  overflow: visible;
+  position: relative;
+}
+
+.firebase-support-form .page-title-visible::before,
+.firebase-support-faq .page-title-visible::before {
+  content: 'arrow_back';
+  height: 24px;
+  left: -40px;
+  position: absolute;
+  top: 4px;
+  width: 24px;
+}
+
+.firebase-support-faq .exw-control,
+.firebase-support-faq .exw-control:hover {
+  background: transparent;
+  display: inline;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.firebase-support-faq .devsite-landing-row-1-up > .devsite-landing-row-item-no-image > .devsite-landing-row-item-description {
+  width: 100%;
+}
+
+.firebase-support-faq .expandable {
+  border-bottom: 1px solid rgba(207, 216, 220, .87);
+  color: #757575;
+}
+
+.firebase-support-faq .expandable > :last-child {
+  padding-bottom: 20px;
+}
+
+.firebase-support-faq .expandable p {
+  color: #757575;
+  margin: 16px 0;
+  padding-right: 44px;
+}
+
+.firebase-support-faq .expand-control::after {
+  content: 'expand_more';
+  height: 20px;
+  margin: 2px 0;
+  position: absolute;
+  right: 2px;
+  top: -2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 20px;
+}
+
+.firebase-support-faq .exw-expanded::after {
+  content: "expand_less";
+}
+
+.firebase-support-faq .expandable p:not(.showalways) {
+  color: #212121;
+}
+
+.firebase-support-faq .pillar-start {
+  margin-top: 50px;
+}
+
+.firebase-landing-row-less-top-margin {
+  margin-top: 20px;
+}
+
+.firebase-support-faq-earn {
+  margin-bottom: 80px;
+}
+
+.firebase-support-faq .expandable .devsite-table-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.firebase-support-faq .expandable .devsite-table-wrapper table {
+  margin: 16px 0;
+}
+
+.firebase-support-faq strong {
+  font-weight: 500;
+}
+
+.case-study {
+  padding: 24px 36px 0;
+}
+
+.case-study-company-logo-wrapper,
+.case-study-key-stats h5 {
+  display: inline-block;
+  margin-right: 56px;
+  text-align: right;
+  width: 180px;
+}
+
+.case-study-key-stats h5 {
+  font-weight: 500;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+.case-study-company-logo.fabulous {
+  width: 160px;
+}
+
+.case-study-company-logo.piccollage {
+  width: 48px;
+}
+
+.case-study-company-logo.shazam {
+  width: 155px;
+}
+
+.case-study-company-logo.skyscanner {
+  width: 174px;
+}
+
+.case-study-company-logo.glow {
+  width: 90px;
+}
+
+.case-study-description-wrapper {
+  color: #757575;
+  display: inline-block;
+  margin: 0;
+  width: calc(100% - 236px);
+}
+
+h3.case-study-company-name {
+  margin-bottom: 0;
+}
+
+.case-study-company-name .material-icons {
+  position: relative;
+  top: 2px;
+}
+
+.case-study-app-image {
+  margin: 0 32px 24px 0;
+  width: 200px;
+}
+
+.case-study-key-stats {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 232px);
+}
+
+.case-study-key-stats section {
+  margin-bottom: 36px;
+}
+
+.case-study-key-stats .company-logo {
+  margin-bottom: 24px;
+}
+
+.case-study-key-stats .quote {
+  font-style: italic;
+  margin-bottom: 72px;
+}
+
+.case-study-quote-attribution {
+  color: #212121;
+  margin-left: 16px;
+}
+
+.firebase-case-studies .expandable {
+  background: #fbfbfc;
+  margin: 0px -36px;
+}
+
+.expandable-contents-wrapper {
+  padding: 40px;
+}
+
+.expandable-contents-text {
+  width: 70%;
+}
+
+.expandable-contents-wrapper h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.expandable-contents-wrapper p {
+  color: #757575;
+}
+
+.expandable-contents-wrapper img {
+  float: right;
+  margin: 0 0 0 100px;
+  width: 200px;
+}
+
+.expandable-contents-wrapper-wide-image img {
+  width: 500px;
+}
+
+.expandable-contents-wrapper .subhead {
+  font-style: italic;
+}
+
+.expandable-contents-wrapper .subhead + p {
+  margin-top: 0;
+}
+
+.firebase-case-study-expand {
+  position: absolute;
+  right: 36px;
+  top: -56px;
+  width: 85px;
+}
+
+.case-study .expandable h4:first-of-type {
+  margin-top: 0;
+}
+
+.firebase-case-studies .devsite-landing-row-item-custom-image-icon {
+  font-size: 96px;
+  width: 96px;
+}
+
+.firebase-case-studies .devsite-landing-row-logos h2 {
+  color: #757575;
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.firebase-pricing-page .devsite-main-content {
+  padding: 0 80px;
+}
+
+@media screen and (max-width: 1200px) {
+  .firebase-gcp-banner {
+    padding-bottom: 16px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .firebase-homepage .devsite-main-content {
+    padding: 0 80px;
+  }
+
+  .firebase-homepage-header-row {
+    background-position: 104px 0;
+    padding: 0 80px;
+  }
+
+  .firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-image,
+  .firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-code {
+    float: none;
+    margin: 0 0 40px;
+    width: 100%;
+  }
+
+  .firebase-homepage .firebase-homepage-row-independent-sizing .devsite-landing-row-item-description {
+    width: 100%;
+  }
+
+  .case-study-app-image {
+    display: none;
+  }
+
+  .case-study-key-stats {
+    width: 100%;
+  }
+
+  .case-study-key-stats .company-logo {
+    margin-bottom: 16px;
+  }
+
+  .case-study-company-logo-wrapper {
+    margin: 0 0 24px;
+    text-align: left;
+  }
+
+  .case-study-key-stats h5 {
+    margin: 0 0 8px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .case-study-description-wrapper {
+    width: 100%;
+  }
+
+  .devsite-landing-row-logos .devsite-landing-row-item-custom-image-icon {
+    font-size: 96px;
+    width: 96px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .firebase-homepage .devsite-main-content {
+    padding: 0 16px;
+  }
+
+  .firebase-homepage .devsite-landing-row:first-of-type {
+    padding-top: 0;
+  }
+
+  .firebase-features-page .devsite-landing-row:first-of-type:not(.devsite-landing-row-cta) {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .firebase-homepage-header-row {
+    background-image: none;
+    padding: 0 24px;
+    text-align: center;
+    min-height: 256px;
+  }
+
+  .firebase-homepage-header-button {
+    display: block;
+    margin: 12px;
+  }
+
+  .firebase-homepage-sub-heading {
+    margin: 16px auto 32px auto;
+  }
+
+  .firebase-homepage-header-row .devsite-product-button-row {
+    text-align: center;
+  }
+
+  .firebase-homepage-heading {
+    font-size: 40px;
+    line-height: 52px;
+    padding-top: 48px;
+  }
+
+  .firebase-gcp-banner img {
+    float: none;
+    margin-bottom: -48px;
+    margin-left: 0;
+  }
+
+  .devsite-landing-row-cta h3 {
+    font-size: 24px;
+  }
+
+  .firebase-homepage .devsite-landing-row,
+  .firebase-features-page .devsite-landing-row {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .firebase-features-page .devsite-landing-row {
+    position: static;
+  }
+
+  .firebase-features-page .devsite-landing-row:not(.devsite-landing-row-cta) {
+    margin: 32px 0 0;
+    padding: 0;
+  }
+
+  .firebase-features-page .devsite-landing-row-item-image {
+    display: none;
+  }
+
+  .firebase-features-page .devsite-landing-row-item-description {
+    margin: 16px 0;
+  }
+
+  .firebase-features-page .devsite-landing-row-item-description > * {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .devsite-landing-row-item-description .firebase-feature:last-of-type {
+    border-bottom: 0;
+    margin-bottom: 16px;
+  }
+
+  .firebase-features-page .devsite-landing-row-item-icon-container {
+    display: none;
+  }
+
+  .firebase-features-page .firebase-features-intro-paragraph {
+    margin-bottom: 16px;
+    padding-bottom: 15px;
+  }
+
+  .firebase-feature:not(.firebase-feature-analytics) {
+    margin: 16px 0 15px;
+  }
+
+  .firebase-feature {
+    position: relative;
+  }
+
+  .firebase-features-intro-paragraph,
+  .firebase-feature {
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+  }
+
+  .firebase-features-row-develop .firebase-features-intro-paragraph,
+  .firebase-features-row-develop .firebase-feature {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+  }
+
+  .firebase-feature:not(.firebase-feature-analytics) .firebase-feature-popup-content {
+    background: inherit;
+    color: inherit;
+    box-shadow: none;
+    padding: inherit;
+    position: static;
+    top: auto;
+    width: auto;
+    z-index: inherit;
+  }
+
+  .firebase-feature-popup-content {
+    margin-bottom: 16px;
+  }
+
+  .firebase-feature-popup-content h3 {
+    display: none;
+  }
+
+  .firebase-feature-subheading {
+    margin: 0 0 16px;
+  }
+
+  .firebase-feature-main-heading.showalways,
+  .firebase-feature-subheading.showalways {
+    padding-right: 40px;
+  }
+
+  .firebase-feature .exw-control+h3.showalways,
+  .firebase-feature .exw-control+h4.showalways {
+    margin: 0;
+  }
+
+  .firebase-features-row-analytics h2 {
+    width: 100%;
+  }
+
+  .firebase-features-row-analytics .showalways {
+    display: block;
+  }
+
+  .firebase-features-row-analytics .firebase-feature-analytics-desktop {
+    display: none;
+  }
+
+  .firebase-feature .firebase-feature-main-heading {
+    color: inherit;
+  }
+
+  .firebase-feature .firebase-feature-main-heading:hover {
+    cursor: default;
+  }
+
+  .firebase-feature .firebase-feature-main-heading.selected-feature::before,
+  .firebase-feature .firebase-feature-main-heading:hover::before {
+    content: '';
+    display: none;
+  }
+
+  .firebase-feature .exw-control {
+    display: block;
+    right: 16px;
+    top: 16px;
+  }
+
+  .firebase-feature .exw-control,
+  .firebase-feature .exw-control:hover {
+    background: transparent;
+  }
+
+  .firebase-support .expand-control,
+  .firebase-support .expand-control:hover {
+    top: 0;
+  }
+
+  .firebase-support-form .page-title-visible,
+  .firebase-analytics-partners .page-title-visible,
+  .firebase-support-faq .page-title-visible {
+    margin-left: 40px;
+  }
+
+  .expandable-contents-wrapper img {
+    float: none;
+    margin: 0 0 24px;
+  }
+
+  .expandable-contents-text {
+    width: 100%;
+  }
+}

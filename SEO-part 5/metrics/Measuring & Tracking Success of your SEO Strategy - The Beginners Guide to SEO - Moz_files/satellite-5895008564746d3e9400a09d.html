@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://assets.adobedtm.com/f80deb352e898ac28c0b38509ed18ce8ee22111e/scripts/satellite-5895008564746d3e9400a09d.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script src="./aquant.js.download" async="" type="text/javascript"></script><script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!--  Quantcast Tag -->\n<script>\n var ezt = ezt ||[];\n\n (function(){\n   var elem = document.createElement('script');\n   elem.src = (document.location.protocol == \"https:\" ? \"https://secure\" : \"http://pixel\") + \".quantserve.com/aquant.js?a=p-m6uWWu9N3_-aJ\";\n   elem.async = true;\n   elem.type = \"text/javascript\";\n   var scpt = document.getElementsByTagName('script')[0];\n   scpt.parentNode.insertBefore(elem,scpt);\n}());\n\n ezt.push({qacct: 'p-m6uWWu9N3_-aJ'});\n\n</scr"+"ipt>\n<noscript>\n <img src=\"//pixel.quantserve.com/pixel/p-m6uWWu9N3_-aJ.gif?labels=_fp.event.Default\" style=\"display: none;\" border=\"0\" height=\"1\" width=\"1\" alt=\"Quantcast\"/>\n</noscript>\n<!-- End Quantcast Tag -->";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!--  Quantcast Tag -->
+<script>
+ var ezt = ezt ||[];
+
+ (function(){
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-m6uWWu9N3_-aJ";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem,scpt);
+}());
+
+ ezt.push({qacct: 'p-m6uWWu9N3_-aJ'});
+
+</script>
+<noscript>
+ &lt;img src="//pixel.quantserve.com/pixel/p-m6uWWu9N3_-aJ.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript>
+<!-- End Quantcast Tag -->
+  
+
+</body></html>

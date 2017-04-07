@@ -1,0 +1,199 @@
+
+
+document.write(' \
+<style type="text/css" media="screen">\
+	 .dsq-widget ul.dsq-widget-list {\
+	 padding: 0;\
+	 margin: 0;\
+	 text-align: left;\
+	 }\
+	 img.dsq-widget-avatar {\
+	 width: 32px;\
+	 height: 32px;\
+	 border: 0px;\
+	 margin: 0px;\
+	 padding: 0px 3px 3px 0px;\
+	 float: left;\
+	 }\
+	 a.dsq-widget-user {\
+	 font-weight: bold;\
+	 }\
+	 a.dsq-widget-thread {\
+	 font-weight: bold;\
+	 }\
+	 p.dsq-widget-meta {\
+	 clear: both;\
+	 font-size: 80%;\
+	 padding: 0;\
+	 margin: 0;\
+	 }\
+	 li.dsq-widget-item {\
+	 margin: 15px 0;\
+	 list-style-type: none;\
+	 clear: both;\
+	 }\
+	 span.dsq-widget-clout {\
+	 padding: 0 2px;\
+	 background-color: #ff7300;\
+	 color: #fff;\
+	 }\
+	 table.dsq-widget-horiz td {\
+	 padding-right: 15px;\
+	 }\
+	 .dsq-widget-comment p {\
+	 display: inline;\
+	 }\
+	 </style>\
+	 <ul class="dsq-widget-list">\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/boreskilebanon/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21520/1834/avatar92.jpg?1481829144"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/boreskilebanon/">Boreski</a>\
+	 <span class="dsq-widget-comment"><p>Totally agree. It\'s the first ranked website in the world, beating its strongest competitors anywhere from 3 up to more than 10 times ahead. So, it\'s hard to see that will change any time soon.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3203890739">6 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/boreskilebanon/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21520/1834/avatar92.jpg?1481829144"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/boreskilebanon/">Boreski</a>\
+	 <span class="dsq-widget-comment"><p>Addict-o-matic, oh boy.. I laughed so hard to that. Man, this crappy SE not even worth mentioning</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3203877812">6 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/My_Noodles/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/16592/8708/avatar92.jpg?1437228736"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/My_Noodles/">Mr Noodles</a>\
+	 <span class="dsq-widget-comment"><p>I kept asking myself , what the hell is Safari Internet Day? ..</p><p>Dyslexia for the win!</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/02/01/brand-tlds-vs-com-why-the-worlds-biggest-brands-are-making-the-switch-to-their-own-web-extension/">Brand TLDs vs .com: why the world’s biggest brands are making the switch to their own web extension</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/02/01/brand-tlds-vs-com-why-the-worlds-biggest-brands-are-making-the-switch-to-their-own-web-extension/#comment-3203744210">8 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/boreskilebanon/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21520/1834/avatar92.jpg?1481829144"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/boreskilebanon/">Boreski</a>\
+	 <span class="dsq-widget-comment"><p>Hah! This was funny. Good one thou ;)</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/08/05/what-should-i-do-when-i-discover-a-competitors-private-blog-network-pbn/">What should I do when I discover a competitor’s Private Blog Network (PBN)?</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/08/05/what-should-i-do-when-i-discover-a-competitors-private-blog-network-pbn/#comment-3203742313">8 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/My_Noodles/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/16592/8708/avatar92.jpg?1437228736"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/My_Noodles/">Mr Noodles</a>\
+	 <span class="dsq-widget-comment"><p>Bad idea. Even my technical minded friends just type the company name into the address bar and click the first link that comes up in Google. How dumb does www.home.yourdomain look anyway? IMHO, this just seems like a massive cash grab to me. Of course, now every business with...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/02/01/brand-tlds-vs-com-why-the-worlds-biggest-brands-are-making-the-switch-to-their-own-web-extension/">Brand TLDs vs .com: why the world’s biggest brands are making the switch to their own web extension</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/02/01/brand-tlds-vs-com-why-the-worlds-biggest-brands-are-making-the-switch-to-their-own-web-extension/#comment-3203738709">8 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_6oXX0qkSef/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_6oXX0qkSef/">Stan</a>\
+	 <span class="dsq-widget-comment"><p>They won\'t even exist as people in one generation thanks to the deals they have received.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3203701263">8 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/SD_Groupkol/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21625/4501/avatar92.jpg?1469446600"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/SD_Groupkol/">SD_Groupkol</a>\
+	 <span class="dsq-widget-comment"><p>Very Useful Article.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/03/five-most-interesting-search-marketing-news-stories-of-the-week-14/">Five most interesting search marketing news stories of the week</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/03/five-most-interesting-search-marketing-news-stories-of-the-week-14/#comment-3203560864">10 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_jJUoI89Mwa/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/24545/6326/avatar92.jpg?1489494266"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_jJUoI89Mwa/">George Valley</a>\
+	 <span class="dsq-widget-comment"><p>Indeed as just like Real Estate industry, this needs to be optimized well as well, the demanding one.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/02/23/hotel-seo-five-steps-to-optimizing-hotel-deals-and-listings/">Hotel SEO: Five steps to optimizing hotel deals and listings</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/02/23/hotel-seo-five-steps-to-optimizing-hotel-deals-and-listings/#comment-3203479776">11 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/seopedia/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/seopedia/">seopedia</a>\
+	 <span class="dsq-widget-comment"><p>You have invested in your content and re-purposing can help you maximize your investment. You should look at it as a long-term SEO outlay and will be helpful to build your brand. You have written a blog post and if you can reproduce in the form of infographic, podcasts and...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2265878/repurposing-content-top-benefits-techniques-tools">Repurposing Content: Top Benefits, Techniques &amp; Tools</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2265878/repurposing-content-top-benefits-techniques-tools#comment-3203352466">13 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/koljasiegmund/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/22705/3858/avatar92.jpg?1489480847"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/koljasiegmund/">Kolja Siegmund</a>\
+	 <span class="dsq-widget-comment"><p>Hi Interesting read, yet I\'m sitting with the question of causality to see how we can actually benefit from it. Therefore: do you have any information regarding the reliability of your research? Have you e.g. controlled for confounding variables, as a websites budget or a...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/02/study-how-valuable-is-it-to-have-keywords-in-your-domain-url/">Study: How valuable is it to have keywords in your domain URL?</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/02/study-how-valuable-is-it-to-have-keywords-in-your-domain-url/#comment-3203290139">15 hours ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_t0E7lfJgJK/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/19969/8829/avatar92.jpg?1457616226"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_t0E7lfJgJK/">Max Smith</a>\
+	 <span class="dsq-widget-comment"><p>Would be fun, but I don\'t think they are going to last.   Google would start looking like MySpace if emojis were allowed.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/">Emoji appear in Google AdWords ads titles</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/#comment-3202759331">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_Aqe0ExYiSX/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_Aqe0ExYiSX/">Clark Boyd</a>\
+	 <span class="dsq-widget-comment"><p>Hi, thanks for commenting! Honestly, I think it could go either way. They are attention-grabbing, but not always for the right reasons... It will be interesting to see where Google draws the line. They are showing up for some search queries, and if they are shown to give...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/">Emoji appear in Google AdWords ads titles</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/#comment-3202608522">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_5JBbYKOHzm/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_5JBbYKOHzm/">Brian</a>\
+	 <span class="dsq-widget-comment"><p>The Swedes, the Scandinavians, the Germans, the Dutch, the France are all getting a better deal from their gov.   Bet yo believe Trump when he said something had happened in Sweden.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3202581055">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/dafnabenyehoshua/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/24409/1974/avatar92.jpg?1489416899"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/dafnabenyehoshua/">Dafna Ben-Yehoshua</a>\
+	 <span class="dsq-widget-comment"><p>Haha, we probably should have seen that coming! Adwords ads are going to be much more entertaining from now on :)<br>Do you think using them will give brands an edge over other brands who are not using them? Because they definitely make the ad stand out.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/">Emoji appear in Google AdWords ads titles</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/#comment-3201919170">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/bexsentance/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/14085/7657/avatar92.jpg?1489415396"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/bexsentance/">Bex Sentance</a>\
+	 <span class="dsq-widget-comment"><p>Hi Michael, Thanks for your comment. At the top of the article it is stated that the webinar, of which this is a write-up, was produced in collaboration with Neustar, and the article footer reiterates this with a link to our collaborative content guidelines. With this in mind...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/09/three-reasons-for-companies-to-consider-using-brand-tlds/">Three reasons for companies to consider using .brand TLDs</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/09/three-reasons-for-companies-to-consider-using-brand-tlds/#comment-3201878424">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/toukirahmed0/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/toukirahmed0/">Toukir Ahmed</a>\
+	 <span class="dsq-widget-comment"><p>Thanks</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2340726/5-advanced-youtube-seo-tactics-to-drive-more-traffic-to-your-videos-website">5 Advanced YouTube SEO Tactics to Drive More Traffic to Your Videos &amp; Website</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2340726/5-advanced-youtube-seo-tactics-to-drive-more-traffic-to-your-videos-website#comment-3201857204">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/zozothemes/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/20315/9218/avatar92.jpg?1481102377"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/zozothemes/">zozothemes</a>\
+	 <span class="dsq-widget-comment"><p>Thank you for sharing</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2069226/how-use-blog-commenting-get-valuable-backlinks-traffic">How to Use Blog Commenting to Get Valuable Backlinks and Traffic</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2069226/how-use-blog-commenting-get-valuable-backlinks-traffic#comment-3201708281">1 day ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wakeup38/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21405/567/avatar92.jpg?1467721607"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wakeup38/">WakeUp38</a>\
+	 <span class="dsq-widget-comment"><p>Emoji seem to be appearing in Organic Search Results again too - for instance a simple search for "emoji snake" show many results in the first two pages.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/">Emoji appear in Google AdWords ads titles</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/07/emoji-appear-in-google-adwords-ads-titles/#comment-3200937607">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_6oXX0qkSef/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_6oXX0qkSef/">Stan</a>\
+	 <span class="dsq-widget-comment"><p>Anything you say, Mastah.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3200825564">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_6oXX0qkSef/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/forums/290/9550/avatar92.jpg?1398187879"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_6oXX0qkSef/">Stan</a>\
+	 <span class="dsq-widget-comment"><p>No thanks.</p><p>What is going in Europe doesn\'t exactly look like working for the people.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/">Say goodbye to Google: 14 alternative search engines</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/02/25/say-goodbye-to-google-14-alternative-search-engines/#comment-3200823555">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/sambo_luy/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/24527/3316/avatar92.jpg?1489346075"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/sambo_luy/">Sambo Luy</a>\
+	 <span class="dsq-widget-comment"><p>this is awesome, I like the GIF IFTTT recipe the most as it is helpful to find cool attractive gif for my facebook</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/03/21/22-useful-ifttt-recipes-for-content-marketing-and-seo/">22 useful IFTTT recipes for content marketing and SEO</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/03/21/22-useful-ifttt-recipes-for-content-marketing-and-seo/#comment-3200745470">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/markserve/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/3784/5180/avatar92.jpg?1354586388"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/markserve/">Makiboy</a>\
+	 <span class="dsq-widget-comment"><p>Can you help me about this? </p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/sew/how-to/2371778/recover-from-panda-follow-these-5-steps-to-avoid-future-panda-hits">Recover From Panda? Follow These 5 Steps to Avoid Future Panda Hits</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/sew/how-to/2371778/recover-from-panda-follow-these-5-steps-to-avoid-future-panda-hits#comment-3200349150">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/duncanpattinson/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/16095/1998/avatar92.jpg?1489414317"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/duncanpattinson/">Duncan Pattinson</a>\
+	 <span class="dsq-widget-comment"><p>many thanks for this article. The title and meta tag are the crown jewels in achieving great SEO. Content of course is king.</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/05/16/how-to-write-meta-title-tags-for-seo-with-good-and-bad-examples/">How to write meta title tags for SEO (with good and bad examples)</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/05/16/how-to-write-meta-title-tags-for-seo-with-good-and-bad-examples/#comment-3200214225">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/NickWildeID/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/21382/8337/avatar92.jpg?1489285606"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/NickWildeID/">Nick Wilde</a>\
+	 <span class="dsq-widget-comment"><p>Thanks :)</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2016/05/26/how-to-write-meta-descriptions-for-seo-with-good-and-bad-examples/">How to write meta descriptions for SEO (with good and bad examples)</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2016/05/26/how-to-write-meta-descriptions-for-seo-with-good-and-bad-examples/#comment-3199803812">2 days ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/Retirefund/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/1459/9100/avatar92.jpg?1489237705"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/Retirefund/">Retirefund</a>\
+	 <span class="dsq-widget-comment"><p>Keywords in Domains remain a vital link to SEO practices!</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://searchenginewatch.com/2017/03/02/study-how-valuable-is-it-to-have-keywords-in-your-domain-url/">Study: How valuable is it to have keywords in your domain URL?</a>&nbsp;&middot;&nbsp;<a href="https://searchenginewatch.com/2017/03/02/study-how-valuable-is-it-to-have-keywords-in-your-domain-url/#comment-3198905802">3 days ago</a></p>\
+	 </li>\
+	 </ul>\
+');

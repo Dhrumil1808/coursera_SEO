@@ -1,0 +1,86 @@
+.center {
+  text-align: center
+}
+
+/* Used in AdMob code examples */
+.oldcode {
+  opacity: .40;
+
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+
+  /* IE <= 7 */
+  filter:alpha(opacity=40);
+}
+
+.newcode {
+  font-weight: bold;
+}
+
+/* Device Screenshots */
+.deviceshot {
+  max-width: 700px;
+  max-height: 400px;
+}
+
+
+/* Start Changelog styles */
+.badge {
+    position: relative;
+    top: -3px;
+    border-radius: 16px;
+    display: inline-block;
+    width: 90px;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Colours for each type of changelog entry. */
+/* TODO: Change the colours to match the site colour scheme */
+
+.badge-changed {
+    background-color: #F4B400;
+    color: #fff;
+}
+
+.badge-fixed {
+    background-color: #4285F4;
+    color: #fff;
+}
+
+.badge-important {
+    background-color: #DB4437;
+    color: #fff;
+}
+
+.badge-feature {
+    background-color: #0F9D58;
+    color: #fff;
+}
+
+.badge-deprecated {
+    background-color: #DB4437;
+    color: #fff;
+}
+
+.badge-issue {
+    background-color: #DB4437;
+    color: #fff;
+}
+
+.changelog > ul  {
+  padding-left: 0;
+}
+
+.changelog > ul > li {
+  list-style-type: none;
+  margin-bottom: 22px;
+}
+
+/* End Changelog styles */

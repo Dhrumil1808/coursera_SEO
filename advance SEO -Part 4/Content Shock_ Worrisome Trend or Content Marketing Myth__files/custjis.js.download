@@ -1,0 +1,115 @@
+﻿jQuery.noConflict();
+jQuery(document).ready(function(){	
+	//jQuery('#socialbox').hide();
+	jQuery('#socialbox ul li').css({'background-color':'#EFEFEF'});
+	jQuery('#socialbox ul li').css({'background':'#EFEFEF'});
+	/*jQuery("#socialbox ul li").hover(function(){jQuery(this).animate({'background':'#F7931E'}, 3000);},
+	function(){jQuery(this).animate({'background':'#EFEFEF'}, 3000);}
+	);*/
+	
+	jQuery("#socialbox ul li").bind('mouseenter', function (e) {
+		jQuery(this).animate({'background-color':'#F7931E'}, 3000);
+		
+	})
+	jQuery("#socialbox ul li").bind('mouseleave', function (e) {
+		jQuery(this).animate({'background-color':'#EFEFEF'}, 3000);
+	});
+
+	if(window.location.pathname == "/education/white-paper-library/" || window.location.pathname =="/education/white-paper-library"){
+		jQuery(".header-ads").hide();
+	}
+	
+	if(jQuery('img[src="http://ad.retargeter.com/seg?add=697173&t=2"]').length){
+		jQuery('img[src="http://ad.retargeter.com/seg?add=697173&t=2"]').remove();
+	}
+	
+	//jQuery('.sd-content ul li.share-twitter a').attr('data-via','CMIContent');
+	/*jQuery('.sd-content ul li.share-twitter a').each(function(e){
+		var full1 = jQuery(this).attr('href');
+		var fullar1 = full1.split("?");
+		var fullar2 = fullar1[1].split("&");
+		fullar2[0] = "share=custom-1360683155";
+		var fullst1 = fullar2.join("&");
+		var fullstfn = fullar1[0] + "?" + fullst1;
+		jQuery(this).attr('href',fullstfn);
+	});
+	jQuery('.sd-content ul li.share-custom').hide();
+	*/
+	
+	//var gplnm = jQuery('#circlecount-button-followercount a span span:eq(1)').html();
+	//jQuery('#circlecount-button-followercount').hide();
+	//jQuery('#soc-22 .socnums').html('<span style="color:#161616;position:relative;bottom:2px;">' + gplnm + '</span>');
+	//jQuery('#soc-22 .soctyp').html('<span style="position:relative;top:4px;color:#8c8c8c;">IN CIRCLES</span>');
+
+	/**
+	 * Main Navigation Toggle Sub-menu
+	 */
+	jQuery( '#cmi-mobile-nav .menu-item-has-children > a' ).click( function(e) {
+
+		// The sub-menu should only toggle if the primary menu toggle is visible
+		if ( jQuery( '.menu-primary-toggle' ).is( ':visible' ) ) {
+
+			var subMenu = jQuery( this ).siblings( '.sub-menu' );
+			var liParent = jQuery( this ).parent( 'li ');
+
+			// Toggle if sub-menu is not open, or if the parent link goes to "#"
+			// This allows the user to tap a parent twice to go to it's url, unless it goes to "#"
+			if ( !subMenu.is( ':visible' ) || '#' == jQuery( this ).attr( 'href' ) ) {
+
+				e.preventDefault();
+
+				liParent.toggleClass( 'open' );
+
+			}
+
+		}
+
+	} );
+
+	var toggle = jQuery( '.menu-primary-toggle' ),
+		toggleOpenLabel = toggle.html(),
+		toggleCloseLabel = '<span class="genericon genericon-close-alt"></span>';
+
+	/**
+	 * Update toggle label
+	 */
+	function updateToggleLabel() {
+
+		if ( jQuery( 'body' ).hasClass( 'main-nav-open' ) ) {
+
+			toggle.html( toggleCloseLabel );
+
+		} else {
+
+			toggle.html( toggleOpenLabel );
+
+		}
+
+	}
+
+	/**
+	 * Menu Toggle
+	 */
+	toggle.click( function(e){
+
+		e.preventDefault();
+
+		jQuery( 'body' ).toggleClass( 'main-nav-open' );
+
+		updateToggleLabel();
+
+	} );
+
+	/**
+	 * Close menu when overlay is clicked
+	 */
+	jQuery( '#cmi-mobile-nav-overlay' ).click( function(){
+
+		jQuery( 'body' ).removeClass( 'main-nav-open' );
+
+		updateToggleLabel();
+
+	} );
+
+
+} );

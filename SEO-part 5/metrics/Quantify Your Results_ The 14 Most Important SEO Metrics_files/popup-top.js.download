@@ -1,0 +1,332 @@
+wj_id = '96ca13d3f6';
+
+(function($){
+	
+	// ie 8 bug fix:
+	
+	if (!Date.now) Date.now = function () {
+		
+		return +new Date();
+		
+	};
+	
+	
+	// mobile:
+	
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+	
+		var isMobile = true;
+		
+	} else {
+	
+		var isMobile = false;
+	
+	};
+	
+	// cookies:
+	
+	function createCookie(name, value, days) {
+		
+		var expires;
+
+		if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		expires = "; expires=" + date.toGMTString();
+		} else {
+		expires = "";
+		}
+		document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+	
+	}
+
+	function readCookie(name) {
+		
+		var nameEQ = encodeURIComponent(name) + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+		}
+		return null;
+	
+	}
+
+	function eraseCookie(name) {
+		
+		createCookie(name, "", -1);
+		
+	}
+	
+	var window_width	= $( window ).width();
+	var window_height	= $( window ).height();
+	
+	var popup_top = '';
+	var popup_top_cookie = 'popup_top_closed';
+	
+	var popup_top_html = ''+
+	
+	'<div id="popup-top">'+
+
+		'<div class="table">'+
+		
+			'<div class="table-cell">'+
+			
+				'<div class="inner">'+
+				
+					'<div class="text">'+
+					
+						'<img class="logo" src="http://www.quicksprout.com/wp-content/themes/quicksprout/images/quicksprout-rf-footer.png" width="231" height="35" alt="Quick Sprout">'+
+						
+						'<h1 class="title border">The <em class="upp">Advanced</em> Customer Acquisition <em>Webinar</em></h1>'+
+						
+						'<p class="description">How to generate <em>195,013 visitors</em> a month without spending a dollar on ads</p>'+
+						'<p class="bonus"><em class="upp">Free bonus:</em> The 24-step framework I use to teach marketing</p>'+
+						
+					'</div>'+
+					
+				'</div>'+
+				
+				'<div class="cta">'+
+				
+					'<div class="inner">'+
+					
+						'<div class="text">'+
+					
+							'<p class="button">'+
+							
+								'<button class="btn btn-wrr button-url" title="regpopbox_20948_96ca13d3f6">Yes, I want Neil to teach me how to grow my business!</button>'+
+								
+								'<span class="exit-url">Exit</span>'+
+							
+							'</p>'+
+						
+						'</div>'+
+							
+					'</div>'+
+						
+				'</div>'+
+				
+			'</div>'+
+			
+		'</div>'+
+
+	'</div>';
+	
+	
+	function popup_top_can() {
+	
+		popup_top_inner_height = 0;
+		
+		popup_top.find( '.inner' ).each(function(){
+			
+			popup_top_inner_height = popup_top_inner_height + $( this ).outerHeight();
+		
+		});
+			
+		if ( popup_top_inner_height < ( window_height - 20 ) ) return true;
+		
+		return false;
+	
+	}
+	
+	function popup_top_check() {
+		
+		if ( !popup_top_can() ) {
+			
+			popup_top.addClass( 'small-0' );
+	
+			if ( !popup_top_can() ) {
+				
+				popup_top.addClass( 'small-1' );
+				
+				if ( !popup_top_can() ) {
+				
+					popup_top.addClass( 'small-2' );
+					
+					if ( !popup_top_can() ) {
+					
+						popup_top.addClass( 'small-3' );
+						
+						if ( !popup_top_can() ) {
+
+							popup_top.addClass( 'small-4' );
+							
+							if ( !popup_top_can() ) {
+
+								popup_top.addClass( 'small-5' );
+								
+								if ( !popup_top_can() ) {
+
+									popup_top.addClass( 'small-6' );
+
+								};
+
+							};
+
+						};
+					
+					};
+				
+				};
+				
+			};
+			
+		};
+	
+	};
+	
+	
+	function popup_top_size() {
+			
+		if ( popup_visible ) {
+			
+			window_height = $( window ).height();
+			
+			popup_top_check();
+			
+			popup_top.css( 'height', window_height );
+			
+		};
+		
+	} 
+	
+	function popup_top_onstart() {
+		
+		popup_top.css( 'marginTop',  0 - window_height );
+		popup_top.css( 'top', 0 );
+		popup_top.css( 'position', 'relative' );
+	
+		var extra_margin = parseInt( $( 'body' ).css( 'margin-top' ) );
+		
+		if( $( '#wpadminbar' ).length ) {
+		
+			extra_margin = extra_margin + $( '#wpadminbar' ).height();
+		
+		};
+		
+		popup_top.animate({
+			
+			marginTop	: 0 - extra_margin,
+			opacity		: 1
+		
+		}, {
+			
+			duration	: 500,
+			queue		: false
+			
+		});
+		
+	}
+	
+	
+	function popup_top_onstop() {
+	
+		window_height = $( window ).height();
+		
+		var extra_margin = parseInt( $( 'body' ).css( 'margin-top' ) );
+		
+		if( $( '#wpadminbar' ).length ) {
+		
+			extra_margin = extra_margin + $( '#wpadminbar' ).height();
+		
+		};
+		
+		popup_top.animate({
+			
+			marginTop	: 0 - window_height,
+			opacity		: 0,
+			zIndex		: 1
+		
+		}, {
+			
+			duration	: 500,
+			queue		: false,
+			complete	: function(){
+				popup_top.remove()
+			}
+			
+		});
+		
+	}
+	
+	
+	function popup_top_scroll() {
+	
+		var actual_scroll = $( document ).scrollTop();
+		
+		if ( popup_visible && actual_scroll >= window_height ) {
+			
+			$( document ).scrollTop( actual_scroll - window_height );
+			
+			popup_visible = false;
+			
+			popup_top.css( 'display', 'none' );
+			popup_top.remove();
+		}
+		
+	}
+	
+	
+	$( document ).ready(function() {
+		
+		if ( !isMobile && !( readCookie( popup_top_cookie ) ) ) {
+			
+			$( window ).resize( popup_top_size );
+			$( window ).scroll( popup_top_scroll );
+			
+			// load js:
+			
+			$.getScript( template_path+'/js/moment/moment.min.js', function() {
+				
+					$.getScript( template_path+'/js/moment/moment-timezone-with-data-2010-2020.min.js', function() {
+						
+						$.getScript( template_path+'/js/jquery.validate.min.js', function() {
+							
+							$.getScript( template_path+'/js/popup-webinarjam/popup-webinarjam.js' );
+							
+						} );
+						
+					} );
+				
+			} );
+			
+			// load css:
+			
+			$('<link/>', {
+				
+				rel: 'stylesheet',
+				type: 'text/css',
+				href: template_path+'/js/popup-webinarjam/popup-webinarjam.css?ver='+template_version
+			
+			}).appendTo('head');
+			
+			window.setTimeout( function() {
+				
+				$( 'body' ).prepend( popup_top_html );
+				
+				popup_top = $( '#popup-top' );
+				
+				$( document ).scrollTop( 0 );
+				
+				popup_visible = true;
+			
+				popup_top_size();
+				popup_top_onstart();
+				
+				createCookie( popup_top_cookie, '1', '365' );
+				
+				popup_top.find( '.exit-url' ).click(function() {
+				
+					popup_top_onstop();
+				
+				});
+				
+			}, 3000 );
+		
+		};
+		
+	});
+	
+})(jQuery);

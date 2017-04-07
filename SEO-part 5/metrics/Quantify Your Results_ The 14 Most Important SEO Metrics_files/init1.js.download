@@ -1,0 +1,16 @@
+//<script>
+bouncex.state = {"newvid":true,"iol":true,"tn":1489548340,"pvid":1,"rc":false,"mobile":false,"vip":"130.65.254.15"};
+bouncex.cookie = {"v":{"email":false},"sid":1,"fvt":1489548340,"vid":1489548340079021,"ao":0,"lp":"https%3A%2F%2Fwww.quicksprout.com%2F2015%2F07%2F20%2Fquantify-your-results-the-14-most-important-seo-metrics%2F","as":0,"vpv":1,"d":"d","r":"www.coursera.org","cvt":1489548340,"gcr":77,"m":0,"did":"5311134363946250066","lvt":1489548340};
+bouncex.brandStyles = false;
+bouncex.webfonts = false;
+bouncex.campaigns = false;
+bouncex.gbi.stacks = false;
+bouncex.debug = false;
+
+if(bouncex.browser.msie){
+	setTimeout(function(){
+		bouncex.init();
+	}, 0);
+} else {
+	bouncex.init();
+}

@@ -1,0 +1,43 @@
+(function (id, src, attrs) {
+  if (document.getElementById(id)) { return; }
+  var js = document.createElement('script');
+  js.src = src;
+  js.type = 'text/javascript';
+  js.id = id;
+  for (var name in attrs) { if(attrs.hasOwnProperty(name)) { js.setAttribute(name, attrs[name]); } }
+  var e = document.getElementsByTagName('script')[0];
+  e.parentNode.insertBefore(js, e);
+})('LeadinJS-53', 'https://js.leadin.com/js/v2/53.js', {"crossorigin":"use-credentials","data-loader":"hs-scriptloader"});
+
+(function (id, src, attrs) {
+  if (document.getElementById(id)) { return; }
+  var js = document.createElement('script');
+  js.src = src;
+  js.type = 'text/javascript';
+  js.id = id;
+  for (var name in attrs) { if(attrs.hasOwnProperty(name)) { js.setAttribute(name, attrs[name]); } }
+  var e = document.getElementsByTagName('script')[0];
+  e.parentNode.insertBefore(js, e);
+})('messages-53', 'https://api.usemessages.com/messages/v1/embed/53.js', {"data-loader":"hs-scriptloader"});
+
+(function (id, src, attrs) {
+  if (document.getElementById(id)) { return; }
+  var js = document.createElement('script');
+  js.src = src;
+  js.type = 'text/javascript';
+  js.id = id;
+  for (var name in attrs) { if(attrs.hasOwnProperty(name)) { js.setAttribute(name, attrs[name]); } }
+  var e = document.getElementsByTagName('script')[0];
+  e.parentNode.insertBefore(js, e);
+})('hs-analytics', '//js.hs-analytics.net/analytics/1481671800000/53.js', {"data-loader":"hs-scriptloader"});
+
+(function (id, src, attrs) {
+  if (document.getElementById(id)) { return; }
+  var js = document.createElement('script');
+  js.src = src;
+  js.type = 'text/javascript';
+  js.id = id;
+  for (var name in attrs) { if(attrs.hasOwnProperty(name)) { js.setAttribute(name, attrs[name]); } }
+  var e = document.getElementsByTagName('script')[0];
+  e.parentNode.insertBefore(js, e);
+})('tally-53', '//app.gettally.com/tallyembed/53.js', {"data-loader":"hs-scriptloader"});

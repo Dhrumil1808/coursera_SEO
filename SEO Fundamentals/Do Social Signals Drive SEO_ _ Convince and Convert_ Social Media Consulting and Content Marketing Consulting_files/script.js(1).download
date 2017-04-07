@@ -1,0 +1,110 @@
+jQuery(document).ready(function($){
+
+	$('.search.menu-item').click(function(){
+		$('.search.right').addClass('show').find('input[type=search]').focus()
+	})
+	$('input[type=search]').on( "blur", function(){
+		$('.search.right').removeClass('show')
+	})
+
+
+	$('.nav-primary').find('[href$=#]').click(function(event){
+		event.preventDefault()
+	})
+	$('.nav-primary').on( 'click', '.media, .consulting', function(event){
+		$(this).siblings().addClass('closed')
+		$(this).toggleClass('closed')
+	})
+
+	$('.offcanvas').find('a').attr('class', 'shiftnav-toggle').attr('data-shiftnav-target', 'shiftnav-main')
+
+	$('.clients-slider').slick({
+		dots: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
+	})
+
+
+
+	var windw = this;
+
+	$.fn.scrollBottom = function() { 
+	  return -($(document).height() - this.scrollTop() - this.height() - ($('#home-cta').outerHeight(true) + $('.pre-footer').outerHeight(true) + $('.site-footer').outerHeight(true))); 
+	};
+
+	$.fn.followTo = function ( pos ) {
+		var $this = this,
+			$window = $(windw);
+		
+		$window.scroll(function(e){
+			if (($(window).scrollTop() + ($('.social-proof').height() * 2)) > ($(document).height() - ($('#home-cta').outerHeight(true) + $('.site-footer').outerHeight(true)))) {
+				$this.css({
+					position: 'absolute',
+					top: $(document).height() - ($('#home-cta').outerHeight(true) + $('.site-footer').outerHeight(true)) - ($('.social-proof').outerHeight(true))
+				});
+			} else {
+				$this.css({
+					position: 'fixed',
+					top: 0,
+					bottom: 'auto'
+				});
+			}
+		});
+	};
+
+	window.addEventListener('resize', function(event){
+		// sidebar();
+	});
+
+	function sidebar() {
+		if ($(window).width() < 1024) {
+			$('.single .social-proof').css('margin', '-39 0 0 0 !important');
+			$('.single .social-proof').css('position', 'fixed');
+			$('.single .social-proof').css('top', '100%');	
+		}
+		else {
+			$('.single .social-proof').css('margin-top', $('.content-sidebar-wrap').offset().top);
+			var bottom = $('#home-cta').outerHeight(true) + $('.pre-footer').outerHeight(true) + $('.site-footer').outerHeight(true) - ($('.single .social-proof').height() * 2);
+			$('.single .social-proof').followTo(bottom);
+		}
+	}
+
+	$(window).bind('load', function() {
+		$('.single .social-proof').show();
+		sidebar();
+	});
+
+	$(window).on('wheel', function(e){
+
+		var change = e.originalEvent.deltaY
+
+		if ( change > 0 ) {
+			// We are scrolling down
+			$('.site-header').addClass('scrolled')
+
+		} else if ( change < 0 ) {
+			// We are scrolling up
+			$('.site-header').removeClass('scrolled')
+
+		}
+	})
+	$(window).on('touchmove', function() { //touchmove works for iOS, I don't know if Android supports it
+		$(window).trigger('wheel')
+	});
+
+
+	$('.browse select').change( function() {
+		window.location.href = 'http://convinceandconvert.com/category/' + $('.browse option:selected').attr('value')
+	})
+
+	$('.menu-item.more > a').on('click', function( event ) {
+		event.stopImmediatePropagation
+		return false
+	}) 
+	$('.more > a').on('tap', function( event ) {
+		event.stopImmediatePropagation
+		return false
+	}) 
+
+})
+

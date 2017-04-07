@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"<span>Leave a<\/span> <span> Comment<\/span> ","multiple":"<span>{num}<\/span> <span>Comments<\/span>","one":"<span>1<\/span> <span>Comment<\/span>"}},"counts":[{"id":"97871 https:\/\/www.searchenginejournal.com\/?p=97871","comments":35}]});
+}

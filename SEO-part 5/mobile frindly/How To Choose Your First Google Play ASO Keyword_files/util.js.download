@@ -1,0 +1,96 @@
+(function() {
+  if (!Array.isArray) {
+    Array.isArray = function(arg) {
+      return Object.prototype.toString.call(arg) === '[object Array]';
+    };
+  }
+
+  window.toggleDropdown = function(selector) {
+    var e;
+    e = document.getElementsByClassName(selector)[0];
+    return e.classList.toggle("shown");
+  };
+
+  window.subscribeButtonClick = function(self, event) {
+    var inputElem;
+    inputElem = document.getElementById('subscribe-insights-input');
+    if (inputElem.validity.valid && inputElem.value.length) {
+      return window.submitSubscribeInsights();
+    }
+  };
+
+  window.subscribeKeyPress = function(self, event) {
+    if (event.key === "Enter" && self.validity.valid) {
+      event.preventDefault();
+      return window.submitSubscribeInsights();
+    }
+  };
+
+  window.submitSubscribeInsights = function() {
+    var email;
+    email = document.getElementById('subscribe-insights-input').value;
+    return fetch("https://sensortower.com/home/request_newsletter", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email
+      })
+    }).then(function() {
+      return document.getElementsByClassName('insight-submit-button')[0].text = "Thanks!";
+    });
+  };
+
+  window.foundInCheckboxArray = function(checkboxArray, targetElementId) {
+    var found;
+    found = false;
+    checkboxArray.forEach(function(el, index) {
+      if (el[0] === targetElementId) {
+        return found = index;
+      }
+    });
+    return found;
+  };
+
+  window.updateCheckboxStorage = function(event) {
+    var foundIndex, isChecked, targetElement;
+    targetElement = event.target;
+    isChecked = targetElement.checked;
+    foundIndex = window.foundInCheckboxArray(checkboxes, targetElement.id);
+    if (foundIndex) {
+      checkboxes[foundIndex][1] = isChecked;
+    } else {
+      checkboxes.push([targetElement.id, isChecked]);
+    }
+    localStorage.setItem('checkboxes', JSON.stringify(checkboxes));
+    return true;
+  };
+
+  window.checkboxSetup = function() {
+    var checkboxes;
+    window.checkboxes = JSON.parse(localStorage.getItem('checkboxes'));
+    if (Array.isArray(checkboxes)) {
+      return checkboxes.forEach(function(targetArray) {
+        var id, targetElement;
+        id = targetArray[0];
+        targetElement = document.getElementById(id);
+        return targetElement.checked = targetArray[1];
+      });
+    } else {
+      checkboxes = [];
+      return localStorage.setItem('checkboxes', JSON.stringify(checkboxes));
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var maxContentWidth, subscribeInputElem;
+    maxContentWidth = 1200;
+    subscribeInputElem = document.getElementById('subscribe-insights-input');
+    if (window.innerWidth >= maxContentWidth) {
+      return subscribeInputElem.focus();
+    }
+  });
+
+}).call(this);

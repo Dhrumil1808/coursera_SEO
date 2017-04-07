@@ -1,0 +1,46 @@
+(function($) {
+ 
+    // Initialize the Lightbox for any links with the 'fancybox' class
+    // $(".fancybox").fancybox();
+ 
+    // Initialize the Lightbox automatically for any links to images with extensions .jpg, .jpeg, .png or .gif
+    // $("a[href$='.jpg'], a[href$='.png'], a[href$='.jpeg'], a[href$='.gif']").fancybox();
+ 
+    // Initialize the Lightbox and add rel="gallery" to all gallery images when the gallery is set up using [gallery link="file"] so that a Lightbox Gallery exists
+    // $(".gallery a[href$='.jpg'], .gallery a[href$='.png'], .gallery a[href$='.jpeg'], .gallery a[href$='.gif']").attr('rel','gallery').fancybox();
+ 
+    // Initalize the Lightbox for any links with the 'video' class and provide improved video embed support
+    $("#sample_video_1").fancybox({
+        //maxWidth        : 1200,
+        //maxHeight       : 1000,
+        //fitToView       : true,
+        width           : '75%',
+        //height          : '75%',
+	autoCenter	: true,
+        autoSize        : false,
+        closeClick      : false,
+        openEffect      : 'none',
+        closeEffect     : 'none',
+	type		: 'inline',
+	//content		: '<p>hello</p>'
+	content		: '<!-- Start of KnowledgeVision Player --><div id="KnowledgeVisionEmbeddedContent26796deaddb14ae3a55ed9ae2d6fffda" class="KnowledgeVisionEmbeddedContent" style="display:none"></div><script language="JavaScript"  type="text/javascript" src="https://s3.amazonaws.com/watch.knowledgevision.com/embed/26796deaddb14ae3a55ed9ae2d6fffda.js?Expires=2145910800&AWSAccessKeyId=AKIAIBXQ24MXQ4CMI74A&Signature=LToVV%2BmehDKGbxGcWnovmcNyQt0%3D"></script><!-- End of KnowledgeVision Player -->'
+    });
+
+    // Initalize the Lightbox for any links with the 'video' class and provide improved video embed support
+    $("#sample_video_2").fancybox({
+        maxWidth        : 1020,
+        maxHeight       : 500,
+        fitToView       : true,
+        //width           : '80%',
+        //height          : '80%',
+        autoSize        : false,
+        closeClick      : false,
+        openEffect      : 'none',
+        closeEffect     : 'none',
+        type            : 'inline',
+        //content               : '<p>hello</p>'
+	content		: '<!-- Start of KnowledgeVision Player --><div id="KnowledgeVisionEmbeddedContent2079125bfbb0439b824652d8035bcd44" class="KnowledgeVisionEmbeddedContent" style="display:none"></div><script language="JavaScript"  type="text/javascript" src="https://s3.amazonaws.com/watch.knowledgevision.com/embed/2079125bfbb0439b824652d8035bcd44.js?Expires=2145910800&AWSAccessKeyId=AKIAIBXQ24MXQ4CMI74A&Signature=Lh4RO%2FElkNqGAioXTLRKiOmnxlk%3D"></script><!-- End of KnowledgeVision Player -->'
+    });
+
+ 
+})(jQuery);

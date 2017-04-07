@@ -1,0 +1,116 @@
+.share_holder {
+    position: absolute;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    z-index: 1;
+    font-weight: 700;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    -ms-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease
+}
+
+.fixed {
+    visibility: visible;
+    position: fixed;
+    top: 40px !important;
+    /*top: 163px !important;*/
+    margin-right: 524px !important;
+	/*margin-right: 570px !important;*/
+    opacity: 1;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    -ms-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease
+}
+
+.social-icon {
+    background-image: url('../images/social-icons.png');
+    background-repeat: no-repeat
+}
+
+.singlePostSocial .sharre {
+    display: block;
+    color: #fff;
+    /*font-size: 15px;*/
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px
+}
+
+.singlePostSocial .facebook {
+    background-position: -70px -71px;
+    background-color: #435e9c
+}
+
+.singlePostSocial .twitter {
+    background-position: -70px -111px;
+    background-color: #4bc6fd
+}
+
+.singlePostSocial .google {
+    background-position: -70px -151px;
+    background-color: #c43b2b
+}
+
+.singlePostSocial .linkedin {
+    background-position: -70px -232px;
+    background-color: #007bb6;
+}
+
+.singlePostSocial .pinterest {
+    background-position: -69px -271px;
+    background-color: #ca1f27
+}
+
+.singlePostSocial .facebook:hover {
+    background-color: #3d4e7e
+}
+
+.singlePostSocial .twitter:hover {
+    background-color: #35bdfa
+}
+
+.singlePostSocial .google:hover {
+    background-color: #bd3222
+}
+
+.singlePostSocial .pinterest:hover {
+    background-color: #b11b22
+}
+
+.singlePostSocial .sharre .box {
+    width: 100%;
+    height: 100%
+}
+
+.singlePostSocial .sharre .box .share {
+    display: none
+}
+
+.singlePostSocial .sharre .box a {
+    display: block;
+    height: 100%;
+    /*padding: 2px 15px 2px 37px;*/
+    padding: 8px 15px 8px 37px;
+    color: #fff;
+    text-align: right;
+    text-decoration: none
+}
+
+.trulysocial-horizontal {
+    width: 0 !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+    visibility: hidden;
+    padding-bottom: 0 !important;
+}

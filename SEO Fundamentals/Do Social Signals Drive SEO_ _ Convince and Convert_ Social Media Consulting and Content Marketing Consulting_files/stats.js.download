@@ -1,0 +1,304 @@
+//
+// New Analytics.js
+//
+// copyright Compendium 2011
+//
+
+(function(window, $){
+
+		if(typeof window.cpdm_ga_run_once != 'undefined'){ 
+		   return; 
+		}
+	 
+		//
+		//
+		//
+		if(typeof _gaq === 'undefined'){
+			_gaq = [];
+		}
+ 
+		var meta = {},
+			meta_tags = document.getElementsByTagName('meta'),
+			agent_name_index = '',
+			trackers = [];
+
+
+		//
+		// Create a tracker with the give UA tracker id
+		//
+		// this will also add this to the list of trackers (used by pushToAllTrackers)
+		//
+		function add_tracker(agent_id){
+			var agent_name = "";
+			if(agent_name_index === ''){
+				agent_name_index = 'a';			
+			}else{
+				agent_name= agent_name_index+".";
+				agent_name_index = String.fromCharCode(agent_name_index.charCodeAt(0)+1);
+			}
+			var tracker =
+			{name : agent_name,
+				push: function(val){
+
+					var newVal = [];
+
+					for(var i = 0; i < val.length; i++){
+						if(i === 0){
+							newVal[0] = this.name + val[0];			
+						}else{	
+							newVal[i] = val[i];			
+						}
+					}
+					_gaq.push(newVal);
+			}};
+
+			trackers.push(tracker);
+			tracker.push(['_setAccount', agent_id]);
+			return tracker;
+		}
+
+		//read header information
+		for(var mi in meta_tags){
+			var m = meta_tags[mi]; 
+			if(m.name){
+				meta[m.name] = m.content;
+			}
+		}
+
+	 //will return true if the link should be considered an 'outgoing link'
+	 var outgoing_link_filter= function(target){
+		 if(typeof meta.ignore_link_path == 'undefined'){
+			 return true;
+		 } 
+		 var pattern = new RegExp(meta.ignore_link_path,'i'); 
+		 return !pattern.test(target);
+	 };
+	 
+
+		/*
+		*
+		*
+		*  Set Up Trackers
+		*
+		*/
+
+		if(meta.cpdm_tracker){
+			add_tracker(meta.cpdm_tracker).push(['_setDomainName', window.location.hostname]);
+		}
+	
+		if(meta.network_tracker){
+			add_tracker(meta.network_tracker).push(['_setDomainName', window.location.hostname]);
+		}
+
+		if(meta.extra_trackers){
+			var ids = [meta.extra_trackers];
+			if(meta.extra_trackers.indexOf(',') > -1){	
+				ids = meta.extra_trackers.split(',');
+			}
+			for( var id in ids){
+				var t=	add_tracker(ids[id]);
+				if(meta.ga_host_name_override){
+					t.push(['_setDomainName', meta.ga_host_name_override]);
+				}
+				else if(meta.host_name){
+					t.push(['_setDomainName', meta.host_name.substring(meta.host_name.indexOf('.'))] );
+				}
+			}
+		}
+
+		window.pushToAllTrackers = function(val){
+			for(var t in trackers){
+				var tracker	= trackers[t];
+				tracker.push(val);
+				
+			}	
+
+			if(val[0] == "_trackEvent"){
+				var newArr = ['trackEvent'];
+
+				for(var i = 1; i <= 3; i++){
+					if(val.length > i){
+						newArr[i] = val[i];	
+					}
+				}
+				if(val.length > 4){
+					newArr[4] = "";
+					newArr[5] = val[4];	
+				}
+
+				window._snaq.push(newArr);
+
+			}
+		};
+
+		//if a meta variable exists with the given name
+		//push the content to the given slot
+		function pushMetaVar(varName,slot, name){
+			if(typeof meta[varName] !== 'undefined'){
+				pushToAllTrackers(["_setCustomVar", slot , name, meta[varName], 3]);
+			}
+		}
+
+	 window.fbAsyncInit = function() {
+		 if(typeof FB !== 'undefined' && FB && FB.Event){
+			 
+
+
+			 if(typeof meta.fb_app_id !== 'undefined'){
+				 FB.init({
+							 appId : meta.fb_app_id,
+							 channelUrl : 'http://'+window.location.hostname+'/channel.html',
+							 status: true,
+							 cookie: true,
+							 xbfml : true
+						 });
+			 }
+			 FB.Event.subscribe('edge.create', function(targetUrl) {
+									pushToAllTrackers(['_trackSocial', 'facebook', 'like', targetUrl]);
+								}); 
+			 FB.Event.subscribe('edge.remove', function(targetUrl) {
+									pushToAllTrackers(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+								}); 
+			 FB.Event.subscribe('message.send', function(targetUrl) {
+									pushToAllTrackers(['_trackSocial', 'facebook', 'send', targetUrl]);
+								});
+		 }
+
+	 };
+	 
+		$(document).ready(function(){
+				//set vars
+				pushMetaVar('page_type', 1, 'Page Type');
+				pushMetaVar('publish_date', 2, 'Publish Date');
+				pushMetaVar('author', 3, 'Author');
+				pushMetaVar('title', 4, 'Title');
+				pushMetaVar('category', 5, 'Category');
+				//track this page view
+				pushToAllTrackers(['_trackPageview']);
+				
+				var targetHostnames = [];
+				if(typeof meta.target_hostname == "string" ){
+					targetHostnames = [meta.target_hostname];
+					if( meta.target_hostname.indexOf(',') > -1){
+						targetHostnames = meta.target_hostname.split(',');
+					}
+				}
+				var isTargetHost = function(hostName){
+					for(var i = 0; i < targetHostnames.length; i++){
+						if($.trim(hostName).toLowerCase() === $.trim(targetHostnames[i]).toLowerCase() && targetHostnames[i].length > 0){
+							return true;
+						}
+					}
+					return false;
+				};
+
+				$(document).on('submit', 'form', function(){
+
+						var cta = this.name;
+
+						if (cta && /^cta=/.test(cta)) {
+							var ctaname= cta.substring(4);
+							pushToAllTrackers(['_trackEvent', 'CTA', 'Click',ctaname]);
+						}
+				});
+				
+				$(document).on('click', 'a, area', function(){
+						if($(this).data('cta_name')){
+							var name = $(this).data('cta_name');
+							pushToAllTrackers(['_trackEvent', 'CTA', 'Click',name]);
+						}else{
+							var hostname, pathname, cta, ctaname;
+
+							hostname = this.hostname;
+							pathname = this.pathname;
+							cta = this.name;
+
+							var href = $(this).attr('href');
+							if (cta && /^cta=/.test(cta)) {
+								ctaname= cta.substring(4);
+								pushToAllTrackers(['_trackEvent', 'CTA', 'Click', ctaname]);
+							} else if (isTargetHost(hostname) && outgoing_link_filter(pathname)) {
+								pushToAllTrackers(['_trackEvent', 'Outgoing Link', 'Click', href]);
+							}
+						}
+				});
+				$(document).on('click', ".widget.track-clicks a ",
+							   function(){
+								   if($(this).attr('href')){
+									   var name = $(this).closest(".widget.track-clicks").attr('name');
+									   var href = $(this).attr('href');
+									   pushToAllTrackers(['_trackEvent', 'Widget', 'Click:'+name,href]);
+								   }
+
+							   });
+				setTimeout(function(){
+					$('a').each(function(){
+						if($(this).is(':visible')){
+							var cta = this.name;
+							if (cta && /^cta=/.test(cta)) {
+								var ctaname= cta.substring(4);
+								pushToAllTrackers(["_trackEvent", "CTA", 'Impression', ctaname, 1, true]);
+							}	
+						}		
+					});
+					$('.widget.track-impressions, .widget.track-clicks').each(
+						function(){
+							if($(this).is(':visible')){
+								var widget = $(this).attr('name');
+								if (widget){
+									pushToAllTrackers(["_trackEvent", "Widget", "Impression" , widget, 1, true]);
+								}  
+							}    
+						});
+				}, 1000);
+							 
+		});
+
+
+	if(meta.cpdm_tracker){
+		(function() {
+			var ga = document.createElement('script');     ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:'   == document.location.protocol ? 'https://ssl'   : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	}
+	
+	_snaq =[];
+	
+
+	_snaq.push(['setCollectorUrl', 'i.compendium.com']);
+	_snaq.push(['enableActivityTracking', 15, 15]);
+	_snaq.push(['trackPageView']);
+	
+	(function() {
+		var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+		sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn2.content.compendiumblog.com/sp.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+	})();
+	
+	 window.cpdm_ga_run_once = true;
+	 window.pushToAllTrackers = pushToAllTrackers;
+
+	// SimpleReach tracking
+	var sr_pid = meta["sr-pid"];
+	if (typeof sr_pid !== "undefined" && sr_pid !== null && sr_pid !== "") {
+		__reach_config = {
+			pid: meta["sr-pid"],
+			title: meta["sr-title"],
+			url: meta["sr-url"],
+			date: meta["sr-date"],
+			authors: [ meta["sr-authors"] ],
+			channels: meta["sr-channels"].split(",")
+		};
+		
+		(function(){
+			var s = document.createElement('script');
+			s.async = true;
+			s.type = 'text/javascript';
+			s.src = document.location.protocol + '//d8rk54i4mohrb.cloudfront.net/js/reach.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+		})();
+	}
+})(window, jQuery);
+
+//pull in analytics

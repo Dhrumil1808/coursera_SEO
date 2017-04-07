@@ -1,0 +1,58 @@
+jQuery(document).ready(function() {
+	jQuery('#custom-attachment-container').on('change', '.wp_custom_attachment', attach_uploads_logic);
+	jQuery('#custom-attachment-container').on('click', '.attachment-title .att', edit_attachment_title);
+	jQuery('#custom-attachment-container').on('blur', '.attachment-title-input', blur_attach_title);
+	jQuery('#custom-attachment-container').on('click', '.attachment-delete', delete_attachment);
+});
+
+attach_count = 0;
+function attach_uploads_logic() {
+	
+	jQuery('#file_size_errors').hide();
+	if(this.files[0].size > jQuery('#max_upload_size').val()) {
+		jQuery('#file_size_errors').html('Error - That file is to large.').show();
+		return false;
+	}
+	
+	attach_count++;
+	jQuery(this).after(jQuery(this).clone().attr({'name':'wp_custom_attachment['+attach_count+']'}));
+	//attach_clone = jQuery(this).clone().attr('name', 'wp_custom_attachment['+attach_count+']')[0];
+	jQuery(this).removeClass('wp_custom_attachment').attr({'data-attachid':attach_count - 1}).hide();
+	attach_title = jQuery(this).val().replace(/.+[\\\/]/, "");
+	jQuery(this).closest('.inside').append('<div class="attachment-title"><span style="color:#3F6E9D;" class="attachment-delete new-attachment"></span><input type="text" name="attachment-title['+ (attach_count - 1) +']" value="'+attach_title+'" style="display:none;" class="attachment-title-input" /><span class="att">' + attach_title + '</span></div>');
+	
+	jQuery('#ace_nofilesuploaded').hide();
+}
+
+function edit_attachment_title() {
+	
+	/*jQuery(this).find('span.att').hide();
+	jQuery(this).find('.attachment-title-input').show().focus();*/
+	
+	jQuery(this).hide();
+	jQuery(this).siblings('.attachment-title-input').show().focus();
+	
+}
+
+function blur_attach_title() {
+	jQuery(this).siblings('span.att').text(jQuery(this).val()).show();
+	jQuery(this).hide();
+}
+
+function delete_attachment() {
+	
+	which_index = jQuery(this).siblings('.attachment-title-input').attr('name').match(/(?:[)\d(?:])/);
+	
+	if (jQuery(this).hasClass('new-attachment')) {
+		jQuery(this).closest('.inside').find('input[data-attachid='+which_index+']').remove();
+		jQuery(this).closest('.attachment-title').remove();
+	} else {
+		jQuery(this).closest('.attachment-title').replaceWith(jQuery('<input type="hidden" name="delete_attachment[]" value="'+which_index+'" />'));
+	}
+	
+	if (!jQuery('.attachment-title')[0]) {
+		jQuery('#ace_nofilesuploaded').show();
+	}
+	
+	
+}

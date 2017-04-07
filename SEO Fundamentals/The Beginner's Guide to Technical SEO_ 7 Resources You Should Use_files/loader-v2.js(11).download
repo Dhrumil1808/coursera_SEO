@@ -1,0 +1,94 @@
+(function() {
+
+    var __hs_cta_json = {"css":"a#cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429 {\n  cursor:pointer; \nfont-family: proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;\nfont-size: 14px;\nfont-weight: 600;\nletter-spacing: .05em;\ntext-transform: uppercase;\ndisplay: inline-block;\ntext-align: center;\nborder: 2px solid;\nborder-radius: 3px;\n-webkit-transition: all .3s;\ntransition: all .3s;\nbackground-color: #1da1db;\ncolor: #fff;\nborder-color: #1da1db;\nfont-size: 12px;\npadding: 6px 18px;\ntext-decoration: none;\ncursor: pointer;}\na#cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429:hover {\n}\na#cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429:active, #cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429:active:hover {\n}\n\n","image":false,"_id":"false","raw_html":"<a id=\"cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429\" class=\"cta_button cta--primary cta--small homepage-nav\" href=\"http://offers.hubspot.com/cs/c/?cta_guid=d8a28862-5f7b-4521-82bf-133bdfd1f429&placement_guid=7284f75c-b9d7-4197-a473-53accd8aadf8&portal_id=53&redirect_url=APefjpFjXo6sKMTdPFZ8D0GUNWu31oB25En8kR0VulOLDY46RQDPlEfpaNzma7kT1mvuNRKbgBWNSyFYKF0wzskYhQRkGQW6Y-UrWJ5DJo0SUEWZ81sFRPpUxXq7qal2_q1QqOzYaIzIZN1yqkBwfEWzVDSvc7NLyXlCw1h7K_l7LVO_vqk4P32og03R4--FUyPo9VY4DNjvZFt9oNxo5Zq95DdyTAD49QvqjMlxPNhWSDDZU-3e9ro2wl1GlyyBTjNolFBlLL1y6vX5ZdK19CDTJcTBTDYHqQ&hsutk=3952fae9d234642bd41950a797af9cfe&utm_referrer=https%3A%2F%2Fblog.hubspot.com%2Fmarketing%2Fthe-beginners-guide-to-technical-seo-7-resources-you-should-use&canon=https%3A%2F%2Fblog.hubspot.com%2Fmarketing%2Fthe-beginners-guide-to-technical-seo-7-resources-you-should-use&pageId=3418491182\"  style=\"/*hs-extra-styles*/\" cta_dest_link=\"http://www.hubspot.com/products/get-started\" title=\"Get Started\"> Get Started </a> ","image_html":"<a id=\"cta_button_53_d8a28862-5f7b-4521-82bf-133bdfd1f429\" class=\"cta_button\" href=\"http://offers.hubspot.com/cs/c/?cta_guid=d8a28862-5f7b-4521-82bf-133bdfd1f429&placement_guid=7284f75c-b9d7-4197-a473-53accd8aadf8&portal_id=53&redirect_url=APefjpFjXo6sKMTdPFZ8D0GUNWu31oB25En8kR0VulOLDY46RQDPlEfpaNzma7kT1mvuNRKbgBWNSyFYKF0wzskYhQRkGQW6Y-UrWJ5DJo0SUEWZ81sFRPpUxXq7qal2_q1QqOzYaIzIZN1yqkBwfEWzVDSvc7NLyXlCw1h7K_l7LVO_vqk4P32og03R4--FUyPo9VY4DNjvZFt9oNxo5Zq95DdyTAD49QvqjMlxPNhWSDDZU-3e9ro2wl1GlyyBTjNolFBlLL1y6vX5ZdK19CDTJcTBTDYHqQ&hsutk=3952fae9d234642bd41950a797af9cfe&utm_referrer=https%3A%2F%2Fblog.hubspot.com%2Fmarketing%2Fthe-beginners-guide-to-technical-seo-7-resources-you-should-use&canon=https%3A%2F%2Fblog.hubspot.com%2Fmarketing%2Fthe-beginners-guide-to-technical-seo-7-resources-you-should-use&pageId=3418491182\"  cta_dest_link=\"http://www.hubspot.com/products/get-started\"> <img id=\"hs-cta-img-7284f75c-b9d7-4197-a473-53accd8aadf8\" class=\"hs-cta-img cta--primary cta--small homepage-nav\" style=\"border-width: 0px; /*hs-extra-styles*/\" mce_noresize=\"1\" alt=\"Get Started\" src=\"https://cdn2.hubspot.net/hubshot/16/11/28/e6258437-91cb-4894-9608-4daae1a55277.png\" /> </a> ","is_image":false,"_class":"hs-cta-7284f75c-b9d7-4197-a473-53accd8aadf8"};
+    var __hs_cta = {};
+
+    __hs_cta.drop = function() {
+        var is_legacy = document.getElementById('hs-cta-ie-element') && true || false,
+            html = __hs_cta_json.image_html,
+            tags = __hs_cta.getTags(),
+            is_image = __hs_cta_json.is_image,
+            parent, _style;
+
+        if (!is_legacy && !is_image) {
+            parent = (document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]);
+
+            _style = document.createElement('style');
+            parent.insertBefore(_style, parent.childNodes[0]);
+            try {
+                default_css = ".hs-cta-wrapper p, .hs-cta-wrapper div { margin: 0; padding: 0; }";
+                cta_css = default_css + " " + __hs_cta_json.css;
+                // http://blog.coderlab.us/2005/09/22/using-the-innertext-property-with-firefox/
+                _style[document.all ? 'innerText' : 'textContent'] = cta_css;
+            } catch (e) {
+                // addressing an ie9 issue
+                _style.styleSheet.cssText = cta_css;
+            }
+
+            html = __hs_cta_json.raw_html;
+        }
+
+        for (var i = 0; i < tags.length; ++i) {
+
+            var tag = tags[i];
+            var images = tag.getElementsByTagName('img');
+            var cssText = "";
+            var align = "";
+            for (var j = 0; j < images.length; j++) {
+                align = images[j].align;
+                images[j].style.border = '';
+                images[j].style.display = '';
+                cssText = images[j].style.cssText;
+            }
+
+            if (align == "right") {
+                tag.style.display = "block";
+                tag.style.textAlign = "right";
+            } else if (align == "middle") {
+                tag.style.display = "block";
+                tag.style.textAlign = "center";
+            }
+
+            tag.innerHTML = html.replace('/*hs-extra-styles*/', cssText);
+            tag.style.visibility = 'visible';
+            tag.setAttribute('data-hs-drop', 'true');
+            window.hbspt && hbspt.cta && hbspt.cta.afterLoad && hbspt.cta.afterLoad();
+        }
+
+        return tags;
+    };
+
+    __hs_cta.getTags = function() {
+        var allTags, check, i, divTags, spanTags,
+            tags = [];
+            if (document.getElementsByClassName) {
+                allTags = document.getElementsByClassName(__hs_cta_json._class);
+                check = function(ele) {
+                    return (ele.nodeName == 'DIV' || ele.nodeName == 'SPAN') && (!ele.getAttribute('data-hs-drop'));
+                };
+            } else {
+                allTags = [];
+                divTags = document.getElementsByTagName("div");
+                spanTags = document.getElementsByTagName("span");
+                for (i = 0; i < spanTags.length; i++) {
+                    allTags.push(spanTags[i]);
+                }
+                for (i = 0; i < divTags.length; i++) {
+                    allTags.push(divTags[i]);
+                }
+
+                check = function(ele) {
+                    return (ele.className.indexOf(__hs_cta_json._class) > -1) && (!ele.getAttribute('data-hs-drop'));
+                };
+            }
+            for (i = 0; i < allTags.length; ++i) {
+                if (check(allTags[i])) {
+                    tags.push(allTags[i]);
+                }
+            }
+        return tags;
+    };
+
+    // need to do a slight timeout so IE has time to react
+    setTimeout(__hs_cta.drop, 10);
+}());

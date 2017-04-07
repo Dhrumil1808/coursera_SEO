@@ -1,0 +1,5 @@
+var asdate=new Date();var q='&tz='+asdate.getTimezoneOffset()/60 +'&ck='+(navigator.cookieEnabled?'Y':'N') +'&jv='+(navigator.javaEnabled()?'Y':'N') +'&scr='+screen.width+'x'+screen.height+'x'+screen.colorDepth +'&z='+Math.random() +'&x=0.010632038116455';var c='';
+c+='<'+'a href="http://g.adspeed.net/ad.php?do=clk&aid=274856&zid=31492&t=1486281975&auth=ab9fc6a70296caca7a8c01675d52655a" target="_blank" ><'+'img style="border:0px;max-width:100%;height:auto;" src="http://co';
+c+='ntentmarketinginstitute.com/wp-content/sideads1/acrolinx_250_Speak_With_One_Voice.png" width="250" height="250" /><'+'/a>';
+document.write(c);
+document.write('<div style="position:absolute;left:0px;top:0px;visibility:hidden;"><img src="http://g.adspeed.net/ad.php?do=imp&aid=274856&zid=31492&t=1486281975&auth=ab9fc6a70296caca7a8c01675d52655a&wd=-1&ht=-1&ref=https%3A%2F%2Fmoz.com%2Fblog%2Fhow-to-thrive-during-content-shock&uri=http%3A%2F%2Fcontentmarketinginstitute.com%2F2014%2F01%2Fcontent-shock-trend-content-marketing-myth%2F" alt="i" width="1" height="1" /></div>');

@@ -1,0 +1,5 @@
+var asdate=new Date();var q='&tz='+asdate.getTimezoneOffset()/60 +'&ck='+(navigator.cookieEnabled?'Y':'N') +'&jv='+(navigator.javaEnabled()?'Y':'N') +'&scr='+screen.width+'x'+screen.height+'x'+screen.colorDepth +'&z='+Math.random() +'&x=0.0074088573455811';var c='';
+c+='<'+'a href="http://g.adspeed.net/ad.php?do=clk&aid=122311&zid=32351&t=1486281977&auth=2623b3311cc7c8b99f89d1192423f3cd" target="_blank" ><'+'img title="Go to WhitePaper Library" style="border:0px;max-width:';
+c+='100%;height:auto;" src="http://www.contentmarketinginstitute.com/wp-content/TopAds/CMI_whitepaper_leaderboard.gif" alt="Go to WhitePaper Library" width="728" height="90" /><'+'/a>';
+document.write(c);
+document.write('<div style="position:absolute;left:0px;top:0px;visibility:hidden;"><img src="http://g.adspeed.net/ad.php?do=imp&aid=122311&zid=32351&t=1486281977&auth=2623b3311cc7c8b99f89d1192423f3cd&wd=-1&ht=-1&ref=https%3A%2F%2Fmoz.com%2Fblog%2Fhow-to-thrive-during-content-shock&uri=http%3A%2F%2Fcontentmarketinginstitute.com%2F2014%2F01%2Fcontent-shock-trend-content-marketing-myth%2F" alt="i" width="1" height="1" /></div>');
